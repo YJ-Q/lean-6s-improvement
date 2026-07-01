@@ -1,0 +1,5 @@
+interface:
+  display_name: "Lean 6S Improvement"
+  short_description: "Structure manufacturing 6S issues into executable corrective-action loops."
+  default_prompt: "Use $lean-6s-improvement to turn a vague shop-floor issue into a 6S corrective-action plan and closure check."
+
