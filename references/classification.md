@@ -1,105 +1,104 @@
-# 6S Classification Rules
+# 6S 分类规则
 
-Use observable site logic, not keywords alone. Assign one primary category and optional secondary categories.
+使用可观察的现场逻辑，而非仅凭关键词。确定一个主要类别和可选的次要类别。
 
-## Seiri / Sort / 整理
+## 整理 / Seiri / Sort
 
-Use when the main failure is unnecessary items, obsolete materials, excess WIP, scrap, expired consumables, or unclear keep/dispose status.
+当主要失效是多余物品、过期物料、过量在制品、废料、过期消耗品或保管状态不清时使用。
 
-Typical evidence:
+典型证据：
 
-- Unused fixtures, old tooling, expired chemicals, mixed scrap and good parts.
-- Excess stock blocking work areas.
-- Items with no user, no order, or no next process.
+- 不用的夹具、旧模具、过期化学品、废品与良品混放。
+- 过量库存堵塞作业区域。
+- 没有使用人、没有订单、没有下工序的物品。
 
-Executable countermeasures:
+可执行的对策：
 
-- Red-tag item, isolate area, define disposition owner and deadline.
-- Set keep/dispose criteria and max quantity.
-- Remove obsolete items from standard area layout.
+- 红牌标识物品，隔离区域，明确处置责任人和期限。
+- 设定保留/废弃标准和最大数量。
+- 从标准区域布局中移除过时物品。
 
-## Seiton / Set in Order / 整顿
+## 整顿 / Seiton / Set in Order
 
-Use when necessary items exist but lack fixed location, labeling, quantity standard, access logic, or return discipline.
+当必需的物品存在但缺乏固定位置、标识、数量标准、取用逻辑或归位纪律时使用。
 
-Typical evidence:
+典型证据：
 
-- Tools placed on machine, ground, shelf edge, or random trolley.
-- Materials are present but labels, min/max, FIFO, or location codes are missing.
-- Operators search, walk extra distance, or borrow unofficial substitutes.
+- 工具放在机器上、地上、货架边缘或随意推车上。
+- 物料存在但缺少标识、最大/最小量、先进先出或位置编码。
+- 操作人员需要翻找、多走路或借用非正式的替代品。
 
-Executable countermeasures:
+可执行的对策：
 
-- Define fixed location, label, shadow board, line marking, max/min quantity, and return owner.
-- Add visual management for abnormal quantity or wrong placement.
-- Update point-of-use layout.
+- 定义固定位置、标识、形迹板、线标、最大/最小数量和归位责任人。
+- 增加异常数量或错误放置的目视管理。
+- 更新使用点布局。
 
-## Seiso / Shine / 清扫
+## 清扫 / Seiso / Shine
 
-Use when the main failure is contamination, dirt, leakage, chips, dust, oil, waste accumulation, or cleaning-source control.
+当主要失效是污染、脏污、泄漏、切屑、灰尘、油污、废弃物堆积或清洁源头控制时使用。
 
-Typical evidence:
+典型证据：
 
-- Oil/water leakage, metal chips, dust accumulation, trash around machine.
-- Cleaning happens only before inspection.
-- Source of contamination is not fixed.
+- 油/水泄漏、金属切屑、灰尘堆积、机器周围垃圾。
+- 只在检查前才清洁。
+- 污染源头未被修复。
 
-Executable countermeasures:
+可执行的对策：
 
-- Clean now, identify source, repair leak or add capture method.
-- Define cleaning point, method, tool, frequency, owner, and acceptance photo.
+- 立即清洁，识别源头，修复泄漏或增加收集方法。
+- 定义清洁点、方法、工具、频率、责任人和验收照片。
 
-## Seiketsu / Standardize / 清洁
+## 清洁 / Seiketsu / Standardize
 
-Use when the site lacks a stable standard that keeps Sort, Set in Order, and Shine from sliding back.
+当现场缺乏稳定的标准来防止整理、整顿和清扫的退步时使用。
 
-Typical evidence:
+典型证据：
 
-- Different shifts use different placement rules.
-- Checklist exists but does not include the issue.
-- Standard photo, audit point, owner, or escalation rule is missing.
+- 不同班组使用不同的放置规则。
+- 点检表存在但不包含此问题。
+- 缺少标准照片、审核点、责任人或升级规则。
 
-Executable countermeasures:
+可执行的对策：
 
-- Create or revise standard photo, checklist, label template, audit route, and abnormal escalation rule.
-- Train by shift and verify with repeated checks.
+- 创建或修订标准照片、点检表、标识模板、审核路线和异常升级规则。
+- 按班组培训并通过反复检查验证。
 
-## Shitsuke / Sustain / 素养
+## 素养 / Shitsuke / Sustain
 
-Use when a known standard exists but people repeatedly do not follow it, supervisors tolerate it, or behavior changes only during audits.
+当已知的标准存在但人员反复不遵守、管理者容忍、或仅在审核期间行为改变时使用。
 
-Typical evidence:
+典型证据：
 
-- "Everyone knows but still does it."
-- Repeated noncompliance after training.
-- Temporary correction before customer or leader inspection.
+- "大家都知道但还是这么做。"
+- 培训后反复不合规。
+- 在客户或领导检查前临时整改。
 
-Executable countermeasures:
+可执行的对策：
 
-- Confirm standard clarity, retrain affected roles, add layered audit, feedback loop, and accountability.
-- Avoid blaming operators before checking whether the standard is realistic and tools are available.
+- 确认标准清晰度，重新培训相关人员，增加分层审核、反馈机制和问责制。
+- 在指责操作人员之前，先检查标准是否切合实际、工具是否可用。
 
-## Safety / 安全
+## 安全 / Safety
 
-Use when the main risk is injury, fire, blocked escape/fire equipment, machine guarding, electrical risk, chemical exposure, forklift/pedestrian conflict, falling objects, or unsafe access.
+当主要风险是伤害、火灾、堵塞逃生/消防设备、机器防护、电气风险、化学品暴露、叉车/行人冲突、物体坠落或不安全通道时使用。
 
-Typical evidence:
+典型证据：
 
-- Blocked extinguisher, emergency exit, electrical cabinet, or aisle.
-- Missing guard, exposed sharp edge, oil slip risk, stacked goods likely to fall.
-- PPE missing in required area.
+- 堵塞灭火器、紧急出口、配电柜或通道。
+- 缺少防护罩、暴露的锋利边缘、油污滑倒风险、堆码货物可能倒塌。
+- 在必需区域缺少 PPE。
 
-Executable countermeasures:
+可执行的对策：
 
-- Contain immediately, isolate hazard, restore safety control, and require supervisor verification.
-- Include recurrence prevention through layout, marking, physical barrier, lockout, checklist, or escalation.
+- 立即控制，隔离危险，恢复安全防护，并要求主管验证。
+- 通过布局、标识、物理屏障、上锁挂牌、点检表或升级机制预防复发。
 
-## Classification Output
+## 分类输出格式
 
-Return:
+返回：
 
-- Primary category.
-- Secondary category if needed.
-- Why this category fits.
-- What evidence would change the classification.
-
+- 主要类别。
+- 如有需要，次要类别。
+- 为何选择此类别。
+- 哪些证据会改变分类结果。

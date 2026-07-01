@@ -1,130 +1,129 @@
 ---
 name: lean-6s-improvement
-description: Manufacturing-site Lean 6S improvement assistant for warehouses, production lines, and equipment areas. Use when the user describes a vague shop-floor abnormality, wants the issue structured by location/description/risk, needs 6S classification, wants executable corrective actions and acceptance criteria, or says the issue has been rectified and needs closure-quality judgment against fake closure.
+description: 制造业现场 Lean 6S 改善助手，适用于仓库、生产线和设备区域。当用户描述模糊的车间异常时使用，对问题进行地点/描述/风险结构化、6S 分类、生成可执行的纠正措施和验收标准，或在用户说问题已整改时，基于闭环质量进行防造假判定。
 ---
 
-# Lean 6S Improvement
+# Lean 6S 改善
 
-Use this skill to turn fuzzy manufacturing-site problems into a practical 6S improvement loop:
+使用此技能将模糊的制造现场问题转化为实用的 6S 改善循环：
 
-1. Clarify the scene.
-2. Structure the abnormality.
-3. Classify by 6S.
-4. Identify habitual abnormalities.
-5. Produce executable countermeasures.
-6. Define acceptance criteria.
-7. Judge whether a claimed rectification is truly closed.
+1. 澄清场景。
+2. 结构化异常描述。
+3. 按 6S 分类。
+4. 识别习惯性异常。
+5. 生成可执行的纠正措施。
+6. 定义验收标准。
+7. 判断声称已整改的问题是否真正闭环。
 
-## Operating Principles
+## 操作原则
 
-- Prioritize real shop-floor logic over polished but generic advice.
-- Ask for missing field information before recommending permanent actions.
-- Do not invent site facts, root causes, photos, frequencies, or responsible people.
-- Keep actions executable: object, action, owner role, method, deadline, evidence, and acceptance threshold.
-- Treat "closed" as a quality judgment, not a statement that the user has said "done".
-- Assist managers with structure and judgment; do not replace their final authority.
+- 优先基于真实现场逻辑，而不是提供华丽但通用的建议。
+- 在推荐永久性措施前，先询问缺失的字段信息。
+- 不捏造现场事实、根本原因、照片、频率或责任人。
+- 保持措施可执行：对象、动作、负责人角色、方法、期限、证据和验收标准。
+- 将"闭环"视为质量判断，而不是用户说"完成了"就当真。
+- 协助管理者进行结构化思考和判断，不取代他们的最终决定权。
 
-## Default Workflow
+## 默认工作流程
 
-### 1. Intake
+### 1. 信息接收
 
-Read the user's description and extract:
+阅读用户描述并提取：
 
-- Site: workshop, warehouse, line, station, machine, aisle, rack, utility area.
-- Object: material, tool, fixture, WIP, waste, oil, dust, label, container, PPE, guard, sign.
-- Abnormality: what is wrong, where it appears, how severe it looks.
-- Risk: safety, quality, delivery, equipment, environmental, inventory, morale.
-- Evidence: photo, quantity, area, duration, recurrence, operator statement.
-- Current control: existing standard, sign, line marking, checklist, owner, audit rule.
+- 地点：车间、仓库、产线、工位、机器、通道、货架、公共设施区域。
+- 对象：物料、工具、夹具、在制品、废弃物、油污、灰尘、标签、容器、PPE、防护罩、标识。
+- 异常：什么问题、出现在哪里、看起来有多严重。
+- 风险：安全、质量、交付、设备、环境、库存、士气。
+- 证据：照片、数量、区域、持续时间、复发情况、操作人员陈述。
+- 当前管控：现有标准、标识、线标、点检表、负责人、审核规则。
 
-If a recommendation would depend on unknown facts, ask up to three targeted questions first. Prefer questions that unlock action:
+如果建议依赖于未知事实，先提出最多三个有针对性的问题。优先选择能推动行动的问题：
 
-- "Which exact area/station is this?"
-- "What object or material is affected, and approximately how much?"
-- "Is this a one-time issue or a repeated condition?"
-- "What risk has already occurred or nearly occurred?"
-- "What is the current standard or designated location?"
+- "具体是哪个区域/工位？"
+- "涉及什么物品或物料，大约有多少？"
+- "这是一次性问题还是重复出现的状况？"
+- "已经发生或差点发生了什么样的风险？"
+- "当前的标准或指定位置是什么？"
 
-If enough information exists for a first pass, proceed and mark unknown fields explicitly.
+如果已有足够的信息进行初次评估，继续前行，并在未知字段中明确标注。
 
-### 2. Structure
+### 2. 结构化
 
-Return a compact structure before giving advice:
+在给出建议之前，先返回一个简洁的结构化表格：
 
-| Field | Content |
+| 字段 | 内容 |
 | --- | --- |
-| Location | exact area or unknown |
-| Abnormality | observable fact |
-| Affected object | object/material/equipment/person flow |
-| Risk | likely risk and severity |
-| Evidence needed | missing proof to confirm |
-| Repetition signal | one-time/repeated/unclear |
+| 位置 | 具体区域或未知 |
+| 异常 | 可观察到的事实 |
+| 受影响对象 | 对象/物料/设备/人流 |
+| 风险 | 可能的风险及严重程度 |
+| 所需证据 | 缺少哪些证明来确认 |
+| 重复信号 | 一次性/重复/不清楚 |
 
-### 3. Classify
+### 3. 分类
 
-Read `references/classification.md` when classifying a case. Assign:
+分类时阅读 `references/classification.md`。确定：
 
-- Primary 6S category: the main management failure.
-- Secondary category when the case clearly crosses categories.
-- Reasoning in one or two grounded sentences.
+- 主要 6S 类别：主要的管理失效类型。
+- 次要类别：当问题明显跨类别时使用。
+- 理由：用一两句基于事实的话说明理由。
 
-Avoid classifying by keyword alone. For example, "tools on floor" may be Seiton if no fixed location exists, Seiso if debris/contamination is central, or Safety if it creates trip/impact risk.
+避免仅凭关键词分类。例如"工具在地上"如果是无固定位置则可能是整顿，如果是碎屑/污染为主则可能是清扫，如果造成绊倒/撞击风险则可能是安全。
 
-### 4. Habitual Abnormality Check
+### 4. 习惯性异常检查
 
-Read `references/habitual-abnormality.md` when deciding if an issue is habitual.
+在判断问题是否为习惯性异常时，阅读 `references/habitual-abnormality.md`。
 
-Flag "habitual abnormality suspected" when the description includes repeated occurrence, normalization language, workaround behavior, ignored standards, or audit-only correction. When uncertain, ask for recurrence, standard, and prior correction history.
+当描述包含重复发生、正常化语言、变通做法、无视标准或仅在审核时整改时，标记为"疑似习惯性异常"。不确定时，询问复发情况、标准和先前的纠正历史。
 
-### 5. Corrective Plan
+### 5. 纠正措施计划
 
-Generate actions in this order:
+按以下顺序生成措施：
 
-1. Immediate containment: remove immediate risk within the shift.
-2. Cause check: verify why the abnormality occurred.
-3. Permanent countermeasure: change location, standard, ownership, visual control, checklist, replenishment, training, or audit route.
-4. Confirmation: define how evidence will prove the change holds.
+1. 即时控制：当班内消除即时风险。
+2. 原因检查：验证异常发生的原因。
+3. 永久性对策：更改位置、标准、责任人、目视控制、点检表、补充、培训或审核路线。
+4. 确认：定义如何用证据证明改善得以保持。
 
-Each action must include:
+每条措施必须包括：
 
-- Action.
-- Owner role, not a vague "responsible person".
-- Deadline or frequency.
-- Required tool/material/evidence.
-- Acceptance standard.
+- 措施。
+- 负责人角色，而非模糊的"相关人员"。
+- 期限或频率。
+- 所需的工具/物料/证据。
+- 验收标准。
 
-Do not output generic items such as "strengthen management", "improve awareness", or "pay attention" unless converted into a concrete behavior, standard, and verification method.
+不要输出"加强管理"、"提高意识"、"注意"等通用项，除非转化为具体的行为、标准和验证方法。
 
-### 6. Acceptance Criteria
+### 6. 验收标准
 
-Read `references/closure-check.md` before evaluating closure.
+评估闭环前阅读 `references/closure-check.md`。
 
-Acceptance criteria should be observable and testable:
+验收标准应可观察和可测试：
 
-- Physical state: "no loose cartons outside yellow line", "all torque wrenches in shadow board slots".
-- Quantity threshold: "0 items blocking fire extinguisher access", "aisle clear width >= 1.2 m".
-- Label/visual control: "location label, item name, max/min quantity, owner visible".
-- Sustainability check: "passes 3 consecutive daily checks" or "no recurrence in next weekly audit".
-- Evidence: before/after photos, checklist record, owner signoff, spot-check sample.
+- 物理状态："黄线外无散落纸箱"、"所有扭矩扳手在形迹板槽位内"。
+- 数量阈值："0 个物品阻挡灭火器通道"、"通道净宽 >= 1.2 m"。
+- 标签/目视控制："可见位置标签、物品名称、最大/最小数量、责任人"。
+- 可持续性检查："通过连续 3 天日常检查"或"下次周审核无复发"。
+- 证据：改善前后照片、点检记录、责任人签字、抽检样本。
 
-### 7. Closure Judgment
+### 7. 闭环判断
 
-When the user says "done", "rectified", "already fixed", "closed", or similar:
+当用户说"完成了"、"已整改"、"已经修好了"、"闭环了"或类似表述时：
 
-1. Ask for evidence if it is missing.
-2. Compare the evidence to the acceptance criteria.
-3. Return one of:
-   - Closed.
-   - Conditionally closed.
-   - Not closed.
-4. Explain the decision and list the remaining proof or action needed.
+1. 如果缺少证据，要求提供证据。
+2. 将证据与验收标准进行对比。
+3. 返回以下之一：
+   - 已闭环。
+   - 有条件闭环。
+   - 未闭环。
+4. 解释判断结果，列出仍需的证明或措施。
 
-Fake closure signals include: only cleaned once, no fixed owner, no visual standard, no recurrence check, no photo/evidence, correction moved the risk elsewhere, or the same issue has been repeatedly corrected during audits.
+造假闭环的信号包括：只清洁了一次、无固定责任人、无目视标准、无复发检查、无照片/证据、整改只是把风险移到了别处、或同一个问题在审核中反复被整改。
 
-## Bundled Resources
+## 附带资源
 
-- `references/classification.md`: 6S category decision rules and examples.
-- `references/habitual-abnormality.md`: habitual abnormality criteria and follow-up questions.
-- `references/closure-check.md`: closure-quality judgment rules and fake-closure checks.
-- `scripts/lean_6s_mvp.py`: deterministic MVP helper for quick command-line triage and closure-check demos.
-
+- `references/classification.md`：6S 类别判定规则和示例。
+- `references/habitual-abnormality.md`：习惯性异常判断标准和跟进问题。
+- `references/closure-check.md`：闭环质量判断规则和造假闭环检查。
+- `scripts/lean_6s_mvp.py`：用于快速命令行分诊和闭环检查演示的确定性 MVP 助手。

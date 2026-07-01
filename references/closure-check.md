@@ -1,48 +1,47 @@
-# Closure Check Rules
+# 闭环检查规则
 
-Closure means the abnormal condition is corrected and the control can prevent recurrence. A single cleanup photo is often not enough.
+闭环意味着异常状态已得到纠正，且该控制措施能够防止复发。一张简单的清洁照片通常不够。
 
-## Evidence Levels
+## 证据等级
 
-Level 0: Claim only.
+等级 0：仅口头声称。
 
-- User says "done" with no details.
-- Judgment: not closed or evidence required.
+- 用户说"做好了"但没有细节。
+- 判定：未闭环或需要证据。
 
-Level 1: Current-state evidence.
+等级 1：当前状态证据。
 
-- After photo, quantity, or description shows the visible issue is removed.
-- Judgment: conditionally closed unless recurrence controls are proven.
+- 改善后的照片、数量或描述显示可见问题已消除。
+- 判定：有条件闭环，除非复发控制措施得到证实。
 
-Level 2: Standard evidence.
+等级 2：标准证据。
 
-- Shows fixed location, label, line marking, owner, checklist, cleaning standard, or safety control.
-- Judgment: conditionally closed or closed depending on risk and recurrence.
+- 显示固定位置、标识、线标、责任人、点检表、清洁标准或安全控制措施。
+- 判定：有条件闭环或已闭环，取决于风险和复发情况。
 
-Level 3: Sustainability evidence.
+等级 3：可持续性证据。
 
-- Shows repeated checks, audit records, no recurrence period, source repair, or training and confirmation by affected shifts.
-- Judgment: closed when matching the acceptance criteria.
+- 显示反复检查记录、审核记录、无复发周期、源头修复、或相关班组的培训和确认。
+- 判定：符合验收标准时，已闭环。
 
-## Fake Closure Signals
+## 造假闭环信号
 
-Treat as not closed or conditionally closed when any critical signal remains:
+当任何关键信号仍然存在时，判定为未闭环或有条件闭环：
 
-- Only moved items elsewhere without defined destination.
-- Only cleaned once; contamination source still exists.
-- No owner, no frequency, no standard photo, no checklist update.
-- Safety access restored but no prevention against re-blocking.
-- Problem has repeated after previous corrections.
-- Evidence does not cover the original location or object.
-- Operator behavior blamed while tools, space, or process design remains unchanged.
+- 仅将物品移至其他地方，没有明确的目的地。
+- 仅清洁了一次，污染源仍然存在。
+- 没有责任人、频率、标准照片、点检表更新。
+- 安全通道恢复但未防止再次堵塞。
+- 问题在之前的纠正后再次出现。
+- 证据不覆盖原始位置或对象。
+- 指责操作人员行为，但工具、空间或流程设计未改变。
 
-## Closure Output
+## 闭环输出格式
 
-Return:
+返回：
 
-- Judgment: Closed, Conditionally closed, or Not closed.
-- Evidence considered.
-- Gap against acceptance criteria.
-- Required next action.
-- Recheck timing.
-
+- 判定：已闭环、有条件闭环或未闭环。
+- 考虑的证据。
+- 与验收标准之间的差距。
+- 所需的下一步措施。
+- 复查时间。

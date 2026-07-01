@@ -1,2 +1,2 @@
 # lean-6s-improvement
-AI skill for 6S lean improvement in manufacturing site
+制造业现场 6S 精益改善的 AI 技能

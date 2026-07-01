@@ -1,44 +1,43 @@
-# Habitual Abnormality Rules
+# 习惯性异常规则
 
-A habitual abnormality is an abnormal state that has become normalized. It is more serious than a single defect because the organization has adapted to the abnormal condition.
+习惯性异常是指异常状态已被正常化的情况。它比单个缺陷更严重，因为组织已经适应了异常状态。
 
-## Strong Signals
+## 强信号
 
-Flag as "habitual abnormality suspected" when two or more signals appear:
+当出现两个或以上信号时，标记为"疑似习惯性异常"：
 
-- Repetition: "always", "often", "again", "every shift", "long-term", "recently repeated".
-- Normalization: "everyone does this", "we are used to it", "no one reports it".
-- Workaround: operators bypass the standard, borrow tools, place items temporarily, walk around blockage.
-- Audit-only correction: issue disappears before inspection and returns later.
-- Standard ignored: standard exists but is not followed.
-- Unowned area: unclear owner, shared area, handover gap, contractor area.
-- Hidden risk: near miss, blocked safety access, contamination source, mix-up risk.
+- 重复性："总是"、"经常"、"又"、"每班"、"长期"、"最近反复出现"。
+- 正常化："大家都这样"、"我们已经习惯了"、"没人报告"。
+- 变通做法：操作人员绕过标准、借用工具、临时放置物品、绕过堵塞物。
+- 仅在审核时纠正：问题在检查前消失，检查后又出现。
+- 标准被无视：标准存在但不被遵守。
+- 无主区域：责任人不清、共用区域、交接班空白、承包商区域。
+- 隐性风险：未遂事故、堵塞安全通道、污染源、混料风险。
 
-## Weak Signals
+## 弱信号
 
-Ask follow-up questions when only one signal appears:
+当仅出现一个信号时，提出跟进问题：
 
-- Has this occurred before?
-- Is there an existing standard location, owner, or checklist point?
-- What did the team do last time?
-- Does the issue return after cleaning or after audits?
-- Is the current rule hard to follow during normal production?
+- 这之前发生过吗？
+- 是否有现有的标准位置、责任人或点检项目？
+- 上次团队做了什么？
+- 这个问题是否在清洁后或审核后再次出现？
+- 当前的标准在正常生产中是否难以遵守？
 
-## Judgment
+## 判定
 
-Use one of:
+使用以下之一：
 
-- Habitual abnormality likely: repeated or normalized, with weak/no control.
-- Habitual abnormality suspected: enough clues but evidence incomplete.
-- Not enough evidence: appears one-time or recurrence unknown.
+- 很可能为习惯性异常：重复或已正常化，且缺乏/无有效控制。
+- 疑似习惯性异常：有足够线索但证据不完整。
+- 证据不足：看起来是一次性事件或复发情况不明。
 
-## Response Pattern
+## 应对模式
 
-When suspected or likely, include at least one countermeasure that changes the system, not only the current visible problem:
+当疑似或很可能时，至少包含一项改变系统而不只是当前可见问题的对策：
 
-- Make the standard visible.
-- Assign owner by area/shift.
-- Add recurrence check.
-- Remove the source of repeated abnormality.
-- Change the layout or replenishment rule if the existing standard is unrealistic.
-
+- 使标准可视化。
+- 按区域/班组指定责任人。
+- 增加复发检查。
+- 消除反复异常的源头。
+- 如果现有标准不切实际，更改布局或补充规则。
