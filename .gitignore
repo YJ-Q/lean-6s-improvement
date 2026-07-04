@@ -1,0 +1,19 @@
+# Local working materials
+docs/
+examples/
+.claude/
+验收报告/
+
+# Office temporary files
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Python cache
+__pycache__/
+*.py[cod]
+tmp_*.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
