@@ -272,6 +272,7 @@ class Triage:
     primary_category: str
     secondary_categories: list[str]
     habitual_judgment: str
+    question_gate: dict[str, object]
     clarifying_questions: list[str]
     corrective_actions: list[dict[str, str]]
     acceptance_criteria: list[str]
@@ -650,16 +651,92 @@ def infer_risk(primary: str, text: str) -> str:
 
 
 def missing_questions(location: str, affected_object: str, text: str) -> list[str]:
-    questions: list[str] = []
+    gate = build_question_gate(location, affected_object, text, "Unknown", [], "", None, None)
+    return (gate["must_ask"] + gate["nice_to_have"])[:3]
+
+
+def build_question_gate(
+    location: str,
+    affected_object: str,
+    text: str,
+    primary: str,
+    secondary_categories: list[str],
+    habitual_judgment: str,
+    closure_judgment: dict[str, str] | None,
+    rectified_text: str | None,
+) -> dict[str, object]:
+    must_ask: list[str] = []
+    nice_to_have: list[str] = []
+    lowered = text.lower()
+    closure_text = rectified_text or ""
+    combined_text = f"{text}\n{closure_text}"
+
+    def add_once(target: list[str], question: str) -> None:
+        if question not in must_ask and question not in nice_to_have:
+            target.append(question)
+
     if location == "Unknown":
-        questions.append("Which exact area, line, station, machine, aisle, or rack is affected?")
+        add_once(must_ask, "请先确认异常发生的具体区域、产线、工位、设备、通道或货架。")
     if affected_object == "Unknown":
-        questions.append("What exact object/material/equipment is abnormal, and roughly how much?")
-    if not any(term in text.lower() for term in HABITUAL_PATTERNS):
-        questions.append("Is this one-time, repeated, or something that tends to reappear after audits?")
+        add_once(must_ask, "请先确认异常对象是什么，以及大致数量、范围或影响面积。")
+
+    if contains_any(text, ["通道", "消防", "灭火器", "配电", "叉车", "绊倒", "滑倒"]) and not contains_any(
+        text, ["堵", "阻断", "净宽", "黄线", "逃生", "主物流", "已清空", "已隔离"]
+    ):
+        add_once(must_ask, "请确认是否影响消防/逃生/主物流通道、配电安全距离或人员必经路径。")
+
+    has_recurrence_signal = any(term in lowered for term in HABITUAL_PATTERNS)
+    category_text = " ".join([primary, *secondary_categories])
+    recurrence_question = "请确认这是一次性问题，还是整改/清理后曾经复发。"
+    if not has_recurrence_signal:
+        if contains_any(category_text, ["Shitsuke", "素养", "Seiketsu", "清洁"]):
+            add_once(must_ask, recurrence_question)
+        elif "证据不足" in habitual_judgment:
+            add_once(nice_to_have, recurrence_question)
+
+    if contains_any(combined_text, ["已整改", "已完成", "已闭环", "已清理", "已培训", "已通知", "已经修好"]):
+        if not contains_any(combined_text, ["复查", "点检", "抽查", "连续", "无复发", "照片", "记录", "台账"]):
+            add_once(must_ask, "请补充整改后证据：原位置前后照片、责任人、标准控制和复查记录。")
+
+    if primary == "Unknown":
+        add_once(must_ask, "请补充可见异常、风险后果和当前已有控制措施，否则只能做粗略初判。")
+
+    if "证据不足" in habitual_judgment:
+        add_once(nice_to_have, "若要判断是否习惯性异常，请补充历史整改、复发次数、班组差异或标准执行情况。")
+
+    if closure_judgment:
+        judgment = closure_judgment.get("judgment", "")
+        if judgment != "已闭环":
+            if judgment == "未闭环":
+                add_once(must_ask, "当前不能直接归档闭环，请补充防复发措施和至少一个复查周期的保持证据。")
+            else:
+                add_once(nice_to_have, "若要升级为已闭环，请补充防复发措施和至少一个复查周期的保持证据。")
+
     if len(text) < 30:
-        questions.append("What visible evidence or risk has already appeared?")
-    return questions[:3]
+        add_once(nice_to_have, "请补充现场可见证据、照片描述或已经出现的安全/质量/效率影响。")
+
+    must_ask = must_ask[:3]
+    nice_to_have = [q for q in nice_to_have if q not in must_ask][:3]
+    if must_ask:
+        status = "must_answer_before_final_judgment"
+        confidence = "闭环证据不足，不能直接归档" if closure_judgment else "初判，需补证据"
+        reason = "缺少会改变分类、风险等级、习惯性异常或闭环判定的关键信息。"
+    elif nice_to_have:
+        status = "can_proceed_with_assumptions"
+        confidence = "可先判断，建议补证据"
+        reason = "已有信息可形成初判，但补充证据会提高整改和验收质量。"
+    else:
+        status = "ready_for_action"
+        confidence = "可直接判断"
+        reason = "现有信息足以支持当前分类、对策和闭环判断。"
+
+    return {
+        "status": status,
+        "confidence": confidence,
+        "reason": reason,
+        "must_ask": must_ask,
+        "nice_to_have": nice_to_have,
+    }
 
 
 def build_actions(primary: str, habitual_judgment: str) -> list[dict[str, str]]:
@@ -1018,8 +1095,19 @@ def triage(problem: str, rectified_text: str | None = None) -> Triage:
     location = detect_location(problem)
     affected_object = infer_object(problem)
     habitual_judgment = habitual(problem)
-    questions = missing_questions(location, affected_object, problem)
-    needs_clarification = primary == "Unknown" and len(questions) >= 2
+    closure_judgment = closure_check(rectified_text)
+    question_gate = build_question_gate(
+        location,
+        affected_object,
+        problem,
+        primary,
+        secondary,
+        habitual_judgment,
+        closure_judgment,
+        rectified_text,
+    )
+    questions = (question_gate["must_ask"] + question_gate["nice_to_have"])[:3]
+    needs_clarification = question_gate["status"] == "must_answer_before_final_judgment" and primary == "Unknown"
     return Triage(
         location=location,
         abnormality=problem,
@@ -1028,10 +1116,11 @@ def triage(problem: str, rectified_text: str | None = None) -> Triage:
         primary_category=primary,
         secondary_categories=secondary,
         habitual_judgment=habitual_judgment,
+        question_gate=question_gate,
         clarifying_questions=questions,
         corrective_actions=[] if needs_clarification else build_actions(primary, habitual_judgment),
         acceptance_criteria=[] if needs_clarification else acceptance(primary),
-        closure_judgment=closure_check(rectified_text),
+        closure_judgment=closure_judgment,
     )
 
 
