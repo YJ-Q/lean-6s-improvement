@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -93,6 +94,36 @@ class PublicAssetTests(unittest.TestCase):
         self.assertIn('aria-selected="true"', text)
         self.assertIn("aria-controls=", text)
         self.assertIn("<noscript>", text)
+
+
+class PrintExportTests(unittest.TestCase):
+    def setUp(self):
+        self.site = ROOT / "case-study"
+
+    def test_print_document_has_page_sentinels_and_numbers(self):
+        text = (self.site / "print.html").read_text(encoding="utf-8")
+        self.assertIn('href="styles/print.css"', text)
+        self.assertEqual(text.count('data-page-check="true"'), 10)
+        self.assertEqual(text.count('class="page-number"'), 10)
+
+    def test_exported_pdf_has_ten_pages(self):
+        from pypdf import PdfReader
+
+        pdf = self.site / "exports" / "lean-6s-case-study.pdf"
+        reader = PdfReader(str(pdf))
+        self.assertEqual(len(reader.pages), 10)
+
+    def test_exported_pdf_contains_searchable_core_claims(self):
+        from pypdf import PdfReader
+
+        pdf = self.site / "exports" / "lean-6s-case-study.pdf"
+        text = "\n".join(page.extract_text() or "" for page in PdfReader(str(pdf)).pages)
+        # Chromium's CJK font subset maps inconsistently in pypdf on Windows, so
+        # use stable Latin text to prove that the PDF has a searchable text layer.
+        compact = re.sub(r"\s+", "", text)
+        self.assertIn("Lean6SSkill", compact)
+        self.assertIn("SYNTHETICUSERTESTING", compact)
+        self.assertIsNotNone(re.search(r"13\.73\s*/\s*16", text))
 
 
 if __name__ == "__main__":

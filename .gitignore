@@ -13,6 +13,7 @@ docs/
 __pycache__/
 *.py[cod]
 tmp_*.json
+tmp/
 
 # Local development dependencies
 node_modules/
