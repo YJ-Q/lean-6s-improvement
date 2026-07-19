@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P02-S03","condition":"baseline","persona_id":"P02","scenario_id":"S03","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"灭火器前的纸箱已经搬到仓库角落，也通知大家以后注意，照片拍好了，可以闭环了吗？"},{"speaker":"assistant","text":"请补验收字段：原位置是否完全畅通；仓库角落是否核验安全；是否有禁放标识；责任岗位；巡检记录。"},{"speaker":"user","text":"原位置：畅通。角落：未核验。禁放标识：无。责任岗位：无。巡检记录：无。"},{"speaker":"assistant","text":"结论：暂不闭环。\n补充任务1：仓库主管核验纸箱新位置不占消防点位和通道，今日完成。\n补充任务2：灭火器前设置禁放标识，明日完成。\n补充任务3：明确属地班组长每日点检并记录。\n闭环证据：原位置照片、新位置核验照片、标识照片、首次点检记录。"}],
+  "ratings":[{"dimension_id":"R01","score":0,"evidence":"一次提出5个闭环补证字段，超过3个上限"},{"dimension_id":"R02","score":2,"evidence":"根据原位畅通、新位未核验和无控制作出判定"},{"dimension_id":"R03","score":0,"evidence":"未标明安全主分类和整理副分类"},{"dimension_id":"R04","score":2,"evidence":"三项任务都有责任角色、时限或点检要求及证据"},{"dimension_id":"R05","score":2,"evidence":"原位、新位、标识照片和点检记录均可验收"},{"dimension_id":"R06","score":2,"evidence":"明确暂不闭环，要求核验新位置并建立点检"},{"dimension_id":"R07","score":2,"evidence":"结论与补充任务字段可直接复制"},{"dimension_id":"R08","score":1,"evidence":"一轮后得到结论，但单轮需回复5个项目"}],
+  "review":{"strengths":["准确拒绝假闭环并补齐新位置证据"],"failures":["一次性追问过多"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

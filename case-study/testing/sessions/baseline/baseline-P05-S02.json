@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P05-S02","condition":"baseline","persona_id":"P05","scenario_id":"S02","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"车间工具架太乱了，帮我给个改善方案。"},{"speaker":"assistant","text":"工具架在哪里？上面都有什么？有没有挡通道或消防设施？"},{"speaker":"user","text":"就是维修工位那个工具架。"},{"speaker":"assistant","text":"架子上主要有哪些工具？"},{"speaker":"user","text":"有平时用的扳手和量具，还有两件准备报废的工具。"},{"speaker":"assistant","text":"先把两件待报废工具拿出来单独装箱并写清楚，扳手放一层、量具放一层，每层贴个名称。整理完拍照，之后谁用完谁放回原处；先这样运行几天，乱的地方再调整。"}],
+  "ratings":[{"dimension_id":"R01","score":1,"evidence":"累计4个问题，且重复追问工具类型"},{"dimension_id":"R02","score":2,"evidence":"只使用维修工位、扳手量具和2件待报废工具事实"},{"dimension_id":"R03","score":0,"evidence":"未给主副分类"},{"dimension_id":"R04","score":0,"evidence":"无责任角色和完成时限，不可直接派工"},{"dimension_id":"R05","score":1,"evidence":"分层、标签和拍照可验收，但‘不乱’没有数量标准"},{"dimension_id":"R06","score":1,"evidence":"建议运行几天再调整，但无点检记录和闭环条件"},{"dimension_id":"R07","score":2,"evidence":"分层、装箱、贴名称的表达简单易懂"},{"dimension_id":"R08","score":1,"evidence":"为适应用户漏答而分步追问，但重复了工具类型"}],
+  "review":{"strengths":["表达简单，当日整理动作易执行"],"failures":["无责任期限与可持续验收"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

@@ -1,0 +1,17 @@
+{
+  "session_id":"baseline-P01-S02","condition":"baseline","persona_id":"P01","scenario_id":"S02","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[
+    {"speaker":"user","text":"车间工具架太乱了，帮我给个改善方案。"},
+    {"speaker":"assistant","text":"工具架在哪个工位？现在主要放什么东西？有没有挡消防设施或通道？"},
+    {"speaker":"user","text":"是维修工位的，没有挡消防和通道。"},
+    {"speaker":"assistant","text":"里面哪些是常用工具，哪些是不需要或准备报废的？"},
+    {"speaker":"user","text":"常用的是扳手和量具，还有两件工具正准备报废。"},
+    {"speaker":"assistant","text":"现在有没有标签、定数量或专门放待报废工具的位置？"},
+    {"speaker":"user","text":"这些都没有，我们也是第一次认真整理。"},
+    {"speaker":"assistant","text":"先把两件待报废工具单独装箱并写上‘待报废’，不要再混用；扳手和量具分成两个区域，擦干净后按大小摆放；每类先贴名称标签，再根据实际使用量定一个大致上限。今天可以先做到分类和标识，后面观察一周再决定是否需要做影子板。"}
+  ],
+  "ratings":[
+    {"dimension_id":"R01","score":0,"evidence":"分三轮追问5项，超出3个上限"},{"dimension_id":"R02","score":2,"evidence":"未把首次整理说成复发或素养问题"},{"dimension_id":"R03","score":0,"evidence":"未标明整顿主分类和整理副分类"},{"dimension_id":"R04","score":1,"evidence":"有分类隔离和当日期限，但无责任角色与留证方式"},{"dimension_id":"R05","score":1,"evidence":"分区和标签可观察，‘大致上限’不可直接验收"},{"dimension_id":"R06","score":1,"evidence":"提出观察一周，但没有复查记录或升级规则"},{"dimension_id":"R07","score":1,"evidence":"最终动作通俗，但新手需回答三轮才得到方案"},{"dimension_id":"R08","score":0,"evidence":"对话达4个助手轮次才给最终方案"}
+  ],
+  "review":{"strengths":["没有把影子板当作唯一答案"],"failures":["追问负担高，无责任角色和完整验收"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

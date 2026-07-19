@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P03-S01","condition":"baseline","persona_id":"P03","scenario_id":"S01","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"包装区安全疏散通道黄线内又堆了6个空托盘，上周清走过一次，叉车下班前会来拉走。请告诉我怎么整改。"},{"speaker":"assistant","text":"已知的是黄线内有6个空托盘且上周处理过；还需要确认：黄线是否就是有效疏散边界、现场是否有临时托盘区、上周是否留下复查记录。"},{"speaker":"user","text":"事实确认：位置是包装区疏散通道，托盘位于黄线内并影响疏散；现场没有临时托盘区，也没有上周的复查记录。"},{"speaker":"assistant","text":"事实：当前疏散通道被6个空托盘占用，且缺少临时存放区和复查记录。推断：问题可能与空托盘等待叉车时没有指定去向有关，但尚不能仅凭现象认定个人违规是根因。处置上应立即把托盘移出通道并隔离该区域，清场后按有效通行宽度验收；随后划定临时空托盘位置，明确包装与叉车交接责任，并至少连续复查数日。叉车下班前来拉走可以作为处置的一部分，不能单独作为闭环依据。"}],
+  "ratings":[{"dimension_id":"R01","score":2,"evidence":"只问风险边界、临时区和复查记录三项"},{"dimension_id":"R02","score":2,"evidence":"明确分开已知事实与‘可能’的系统原因推断"},{"dimension_id":"R03","score":0,"evidence":"未明确给出6S主副分类"},{"dimension_id":"R04","score":1,"evidence":"有清障、划位和交接责任，但缺明确角色、期限与证据字段"},{"dimension_id":"R05","score":1,"evidence":"有通行宽度验收概念，但没有给出实际阈值"},{"dimension_id":"R06","score":2,"evidence":"明确叉车拉走不能单独闭环，要求连续复查"},{"dimension_id":"R07","score":2,"evidence":"区分事实和推断，适配风险敏感的EHS角色"},{"dimension_id":"R08","score":2,"evidence":"一轮3问后即给方案，未重复追问"}],
+  "review":{"strengths":["事实边界与原因推断分开"],"failures":["缺少具体责任角色和可验收阈值"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

@@ -74,6 +74,12 @@ class SessionTests(unittest.TestCase):
         self.assertEqual(result["conditions"]["baseline"]["mean_total"], 8.0)
         self.assertEqual(result["conditions"]["skill"]["mean_total"], 9.0)
 
+    def test_repository_contains_complete_thirty_session_matrix(self):
+        testing_root = ROOT / "case-study" / "testing"
+        sessions, errors = self.module.validate_sessions(testing_root)
+        self.assertEqual(errors, [])
+        self.assertEqual(len(sessions), 30)
+
 
 if __name__ == "__main__":
     unittest.main()

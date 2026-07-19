@@ -1,0 +1,6 @@
+{
+  "session_id":"skill-P05-S03","condition":"skill","persona_id":"P05","scenario_id":"S03","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"灭火器前的纸箱已经搬到仓库角落，也通知大家以后注意，照片拍好了，可以闭环了吗？"},{"speaker":"assistant","text":"先不能关。照片是不是拍的原来灭火器位置，而且能看清前面已经空了？"},{"speaker":"user","text":"是原来的位置，现在空了。"},{"speaker":"assistant","text":"更新摘要：原位已经空，照片能证明当前状态。再做今天第一件事：去看仓库角落能不能放纸箱，那个位置核验过吗？"},{"speaker":"user","text":"没有核验，我也不知道能不能放。"},{"speaker":"assistant","text":"更新摘要：纸箱去向还没确认，所以仍是未闭环。今天由仓库主管核查角落；如果挡通道、消防、电气或没有定置，就马上移到合规位置。完成线：原灭火器前保持空，纸箱新位置合规，并各拍一张照片。只通知大家不算完成；后面还要补责任岗位和复查记录才能关。"}],
+  "ratings":[{"dimension_id":"R01","score":2,"evidence":"分两轮各1个关键问题，只核验原位和目的地"},{"dimension_id":"R02","score":2,"evidence":"说明照片只能证明原位当前状态，未推定新位置"},{"dimension_id":"R03","score":0,"evidence":"未明确安全主分类与整理副分类"},{"dimension_id":"R04","score":2,"evidence":"仓库主管、当日核查与转移动作、完成线和照片齐全"},{"dimension_id":"R05","score":2,"evidence":"原位保持空、新位置合规且各一张照片可验收"},{"dimension_id":"R06","score":2,"evidence":"不把通知当作完成，要求核验去向并补责任与复查"},{"dimension_id":"R07","score":2,"evidence":"直接说‘先不能关’和‘完成线’，术语负担低"},{"dimension_id":"R08","score":2,"evidence":"2个关键问题分轮提出，没有信息过载"}],
+  "review":{"strengths":["用低负担交互拒绝风险去向未验证时闭环"],"failures":["没有明示主副分类"],"notes":"Skill 条件的 AI 中介合成会话"}
+}
