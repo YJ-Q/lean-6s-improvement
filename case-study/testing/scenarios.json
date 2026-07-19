@@ -1,0 +1,53 @@
+[
+  {
+    "id": "S01",
+    "type": "complete_information",
+    "title": "安全疏散通道反复堆放托盘",
+    "initial_message": "包装区安全疏散通道黄线内又堆了6个空托盘，上周清走过一次，叉车下班前会来拉走。请告诉我怎么整改。",
+    "hidden_facts": {
+      "location": "包装区安全疏散通道",
+      "object": "6个空托盘",
+      "risk_boundary": "黄线内堆放，影响人员疏散路径",
+      "recurrence": "上周清理后复发",
+      "existing_controls": "有黄线，无临时托盘位，无复查记录"
+    },
+    "expected_primary": "安全",
+    "expected_secondary": ["整顿"],
+    "expected_closure": null,
+    "required_behavior": ["立即恢复通道", "建立临时托盘位置或清运触发条件", "要求原位置证据和复查"]
+  },
+  {
+    "id": "S02",
+    "type": "missing_information",
+    "title": "工具架太乱",
+    "initial_message": "车间工具架太乱了，帮我给个改善方案。",
+    "hidden_facts": {
+      "location": "维修工位工具架",
+      "object": "仍在使用的扳手、量具和两件待报废工具",
+      "risk_boundary": "不影响消防或人员必经路径",
+      "recurrence": "首次系统整理，无法证明复发",
+      "existing_controls": "没有形迹板、标签、数量标准或报废隔离区"
+    },
+    "expected_primary": "整顿",
+    "expected_secondary": ["整理"],
+    "expected_closure": null,
+    "required_behavior": ["先问位置和对象", "确认物品是否需要保留", "不直接判定素养或习惯性异常"]
+  },
+  {
+    "id": "S03",
+    "type": "claimed_rectified",
+    "title": "只把消防器材前纸箱搬走",
+    "initial_message": "灭火器前的纸箱已经搬到仓库角落，也通知大家以后注意，照片拍好了，可以闭环了吗？",
+    "hidden_facts": {
+      "location": "包装仓灭火器前",
+      "object": "纸箱",
+      "risk_boundary": "原位置已清空",
+      "recurrence": "此前没有正式记录",
+      "existing_controls": "无禁放标识、无责任角色、无巡检项，仓库角落去向未验证"
+    },
+    "expected_primary": "安全",
+    "expected_secondary": ["整理"],
+    "expected_closure": "未闭环",
+    "required_behavior": ["识别风险转移", "不把通知等同于防复发", "要求目标位置和复查证据"]
+  }
+]

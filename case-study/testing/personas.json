@@ -1,0 +1,57 @@
+[
+  {
+    "id": "P01",
+    "name": "精益新手班组长",
+    "role": "生产班组长",
+    "lean_experience": "low",
+    "digital_literacy": "medium",
+    "communication_style": "口语化、先说现象、很少主动给数量和历史",
+    "cooperation": "回答追问，但每轮只补一到两个事实",
+    "goal": "在当班结束前拿到能派给班组的动作",
+    "risk": "容易把提醒员工当作主要对策"
+  },
+  {
+    "id": "P02",
+    "name": "时间紧张的仓库主管",
+    "role": "仓库主管",
+    "lean_experience": "medium",
+    "digital_literacy": "high",
+    "communication_style": "短句、批量描述、希望直接复制到台账",
+    "cooperation": "只有追问会改变派工时才愿意回答",
+    "goal": "快速得到责任、期限、验收和证据字段",
+    "risk": "对长篇分析失去耐心"
+  },
+  {
+    "id": "P03",
+    "name": "风险敏感的 EHS 人员",
+    "role": "EHS 专员",
+    "lean_experience": "medium",
+    "digital_literacy": "medium",
+    "communication_style": "关注消防、逃生、配电和人员路径",
+    "cooperation": "会提供风险边界，但要求回答区分事实与推断",
+    "goal": "确认风险先受控，再讨论长期措施",
+    "risk": "对未经证实的高风险判断非常敏感"
+  },
+  {
+    "id": "P04",
+    "name": "有经验的精益顾问",
+    "role": "精益改善顾问",
+    "lean_experience": "high",
+    "digital_literacy": "high",
+    "communication_style": "会挑战主副分类、系统原因和闭环证据",
+    "cooperation": "完整回答，但会追问判断依据",
+    "goal": "检查 Skill 是否只是关键词匹配和泛化建议",
+    "risk": "发现规则矛盾后会降低信任"
+  },
+  {
+    "id": "P05",
+    "name": "数字工具不熟练的现场管理者",
+    "role": "区域负责人",
+    "lean_experience": "low",
+    "digital_literacy": "low",
+    "communication_style": "一句话描述、容易误解专业术语",
+    "cooperation": "追问超过三个或一次包含多个概念时会漏答",
+    "goal": "知道今天先做什么以及怎样算完成",
+    "risk": "复杂输出会增加使用负担"
+  }
+]
