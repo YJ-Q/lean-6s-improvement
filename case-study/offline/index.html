@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lean 6S Improvement 产品案例研究：把精益改善专家方法封装成现场管理者可用的 AI Skill。">
+  <title>Lean 6S Improvement · Case Study</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/screen.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="site-shell">
+      <p>AI PRODUCT CASE STUDY · 2026</p>
+      <strong>Lean 6S Improvement</strong>
+      <p>产品问题、工作流、规则体系、评测与迭代主导；代码由 AI 辅助生成。案例整理与部分最终测试由协作者完成。</p>
+    </div>
+  </header>
+  <nav class="chapter-nav" aria-label="Case study chapters">
+    <div class="site-shell">
+      <ul>
+        <li><a href="#hero">01 概览</a></li>
+        <li><a href="#problem">02 问题</a></li>
+        <li><a href="#opportunity">03 机会</a></li>
+        <li><a href="#solution">04 方案</a></li>
+        <li><a href="#early-failure">05 早期失败</a></li>
+        <li><a href="#key-iterations">06 关键迭代</a></li>
+        <li><a href="#evaluation">07 评测</a></li>
+        <li><a href="#results-limitations">08 结果与限制</a></li>
+        <li><a href="#reflection">09 反思</a></li>
+      </ul>
+    </div>
+  </nav>
+  <noscript><p class="site-shell">所有核心内容均可阅读；当前仅章节进度、标签切换等增强交互不可用。</p></noscript>
+  <main id="main">
+    <section id="hero">
+      <div class="site-shell hero-grid">
+        <div>
+          <p class="eyebrow">01 · HERO</p>
+          <h1>把精益改善专家方法，变成现场管理者随手可用的 AI Skill</h1>
+          <p class="lede">从模糊现场描述，到可派工、可验收、可防复发的整改闭环任务。</p>
+          <p>我主导产品问题、工作流、规则体系、评测设计与产品迭代；案例整理和部分最终测试由协作者完成，代码主要由 AI 辅助生成。</p>
+        </div>
+        <div class="workflow" aria-label="Lean 6S Skill workflow">
+          <div class="workflow-step"><b>01</b><span>现场描述</span></div>
+          <div class="workflow-step"><b>02</b><span>决策追问</span></div>
+          <div class="workflow-step"><b>03</b><span>分类与风险</span></div>
+          <div class="workflow-step"><b>04</b><span>可派工动作</span></div>
+          <div class="workflow-step"><b>05</b><span>验收标准</span></div>
+          <div class="workflow-step"><b>06</b><span>闭环证据</span></div>
+        </div>
+      </div>
+      <div class="site-shell evidence-strip" aria-label="Project evidence overview">
+        <article><strong>31</strong><span>条现有案例完成四项回归；不代表未知场景准确率 100%</span></article>
+        <article><strong>14 + 17</strong><span>虚拟案例 + 由既有记录整理并脱敏的案例</span></article>
+        <article><strong>30</strong><span>次合成用户测试；不等同于真实用户研究</span></article>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="site-shell split-grid">
+        <div><p class="eyebrow">02 · PROBLEM</p><h2>问题不是看不见，而是不知道下一步怎样系统改善</h2></div>
+        <div>
+          <p>现场管理者能看到通道被占、工具混放、污染反复出现等异常，但不一定掌握精益改善的判断框架。问题因此容易停在「清一下、挪一下、提醒一下」，缺少责任、期限、验收证据和复查机制。</p>
+          <p>通用 AI 能迅速给出完整建议，却可能把不确定信息当成事实，直接写成长报告。这个项目要解决的不是生成更多文字，而是让回答受到现场改善纪律约束。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="opportunity">
+      <div class="site-shell split-grid">
+        <div><p class="eyebrow">03 · OPPORTUNITY</p><h2>为什么是 Skill，而不是另一个独立应用</h2></div>
+        <div>
+          <p>管理者只需在现有智能体应用中配置 Skill，就能复用同一套判断和输出规则，不必学习另一套系统。相比普通提示词，主流程、分类边界、习惯性异常和闭环审核可以拆成可维护、可测试的文件。</p>
+          <p>使用者可以直接描述现场，再由有限追问补齐会改变风险、分类、措施或闭环判断的字段。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="site-shell">
+        <p class="eyebrow">04 · SOLUTION</p>
+        <h2>把一次回答拆成六个可检查的决策环节</h2>
+        <p class="lede">现场描述 → 决策追问 → 分类与风险 → 可派工动作 → 验收标准 → 闭环证据。</p>
+        <p>追问最多聚焦三个真正会改变决策的问题。默认采用「台账优先」：单条问题先给可派工结果，多条问题按一行一问题整理，只有明确需要时才展开长报告。</p>
+        <div class="callout">
+          <h3>两套相关但不同的机制</h3>
+          <p><code>SKILL.md / references</code> 是由智能体解释的自然语言规则；<code>Python MVP</code> 是用于分诊演示和案例回归的确定性规则程序，不是 Skill 的完整运行引擎。</p>
+        </div>
+        <div class="architecture" aria-label="Project architecture">
+          <article><small>LAYER 01</small><strong>SKILL.md</strong><span>主流程与输出纪律</span></article>
+          <article><small>LAYER 02</small><strong>references</strong><span>分类、习惯性异常、闭环规则</span></article>
+          <article><small>LAYER 03</small><strong>cases</strong><span>虚拟与脱敏案例边界</span></article>
+          <article><small>LAYER 04</small><strong>Python MVP</strong><span>确定性分诊与回归检查</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="early-failure">
+      <div class="site-shell split-grid">
+        <div><p class="eyebrow">05 · EARLY FAILURE</p><h2>第一版能写方案，但还不像一个现场改善助手</h2></div>
+        <div>
+          <p>早期版本中，追问没有成为流程入口；措施容易停在「建立标准、纳入点检、加强管理」；非典型问题边界也不稳定。</p>
+          <p>一位有现场精益咨询经验的导师认为方向「挺好」，同时指出需要更契合现场。反馈被转化为明确设计问题：回答必须主动获取真正影响决策的现场信息。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="key-iterations">
+      <div class="site-shell">
+        <p class="eyebrow">06 · KEY ITERATIONS</p>
+        <h2>从报告型输出，迭代为追问前置、台账优先、证据闭环</h2>
+        <div class="iteration" aria-label="Question gate iteration">
+          <article><small>BEFORE</small><h3>追问只是附注</h3><p>模型先写完整方案，未知事实被默认补齐。</p></article>
+          <article><small>INSIGHT</small><h3>现场差异会改变结论</h3><p>通道性质、是否复发、现有标准与责任会改变风险和措施。</p></article>
+          <article><small>DECISION</small><h3>建立决策追问关卡</h3><p>只前置最多三个会改变判断的问题。</p></article>
+          <article><small>AFTER</small><h3>更新摘要 + 最新完整方案</h3><p>用户补充后直接得到当前可执行版本，不用翻前文拼接。</p></article>
+        </div>
+        <p>后续又补上字段级防复发、安全红线、非典型 6S 标记和假闭环审核：一张改善后照片只能证明当前状态，不能自动证明风险没有转移或控制可以维持。</p>
+      </div>
+    </section>
+
+    <section id="evaluation">
+      <div class="site-shell">
+        <p class="eyebrow">07 · EVALUATION</p>
+        <h2>用不同证据回答不同问题</h2>
+        <div class="evidence-strip">
+          <article><strong>31</strong><span>案例回归：检查规则修改是否破坏既有口径</span></article>
+          <article><strong>A/B</strong><span>有无 Skill：观察流程约束带来的差异</span></article>
+          <article><strong>Cross-model</strong><span>比较对强模型的约束与对弱模型的托底</span></article>
+        </div>
+        <div class="callout">
+          <h3>合成用户测试</h3>
+          <p>5 类角色 × 3 类任务 × 普通 AI / Skill 两种条件，共 30 次会话。人物卡、场景、隐藏信息和评分表在回答生成前冻结。</p>
+          <p><strong>9.73/16 → 13.73/16</strong>；主要提升来自分类逻辑、可派工性和可测量验收。</p>
+          <p><strong>不等同于真实用户研究。</strong>它用于形成性发现，不能替代真实访谈、可用性测试或市场验证。</p>
+        </div>
+        <div class="evaluation-tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="合成用户测试视图">
+            <button type="button" id="tab-score" role="tab" aria-selected="true" aria-controls="panel-score">条件评分</button>
+            <button type="button" id="tab-dimension" role="tab" aria-selected="false" aria-controls="panel-dimension" tabindex="-1">维度变化</button>
+            <button type="button" id="tab-boundary" role="tab" aria-selected="false" aria-controls="panel-boundary" tabindex="-1">可信边界</button>
+          </div>
+          <div id="panel-score" role="tabpanel" aria-labelledby="tab-score">
+            <div class="score-row">
+              <div><span>普通 AI</span><strong data-score-value="baseline">9.73 / 16</strong></div>
+              <div class="score-track"><span data-bar-condition="baseline" data-bar-label="普通 AI 条件"></span></div>
+            </div>
+            <div class="score-row">
+              <div><span>配置 Skill</span><strong data-score-value="skill">13.73 / 16</strong></div>
+              <div class="score-track"><span data-bar-condition="skill" data-bar-label="配置 Skill 条件"></span></div>
+            </div>
+          </div>
+          <div id="panel-dimension" role="tabpanel" aria-labelledby="tab-dimension">
+            <table>
+              <thead><tr><th>维度</th><th>普通 AI</th><th>Skill</th></tr></thead>
+              <tbody>
+                <tr><td>分类逻辑</td><td>0.00</td><td>1.80</td></tr>
+                <tr><td>可派工性</td><td>1.00</td><td>1.93</td></tr>
+                <tr><td>可测量验收</td><td>1.27</td><td>2.00</td></tr>
+                <tr><td>追问负担</td><td>1.20</td><td>1.27</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="panel-boundary" role="tabpanel" aria-labelledby="tab-boundary">
+            <p><strong>保留失败：</strong>追问负担几乎未改善，信息缺失时仍可能累计多轮问题。</p>
+            <p>这些分数来自合成会话的冻结规则评分，只用于发现产品问题，不证明真人满意度、整改效率或业务收益。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results-limitations">
+      <div class="site-shell split-grid">
+        <div><p class="eyebrow">08 · RESULTS &amp; LIMITATIONS</p><h2>当前证据支持「规则更稳」，还不支持「业务已经改善」</h2></div>
+        <div>
+          <p>现有报告指向：Skill 主要加强安全边界、结构化分类、追问收敛和闭环证据；同时，措施深度有时不如无约束模型，输入质量依赖与非典型边界仍需优化。</p>
+          <p>合成测试保留了一个关键失败：追问负担仅从 1.20 提升到 1.27，信息缺失时仍可能累计过多问题。</p>
+          <p>31/31 可能受到案例规模有限、案例与规则共同迭代、已知表达硬编码等影响。当前只有 1 位相关导师评测，尚未验证真实用户满意度、整改效率、事故率下降或投资回报。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <div class="site-shell split-grid">
+        <div><p class="eyebrow">09 · REFLECTION &amp; NEXT STEPS</p><h2>下一步不是继续堆规则，而是改善人、模型与验证之间的协作</h2></div>
+        <div>
+          <p>下一阶段将招募真实班组长、仓库主管与 EHS 人员，观察他们怎样描述问题、在哪些追问处放弃，以及输出能否真正进入台账和派工流程。</p>
+          <p>技术上应把 LLM 的情境理解与结构化校验结合起来，减少硬编码；产品上用示例、渐进字段和照片描述提示帮助使用者提供足够现场信息。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p>作者主导产品与规则设计，代码由 AI 辅助生成；案例整理和部分最终测试由协作者完成。</p>
+      <a href="exports/lean-6s-case-study.pdf">下载 10 页精简 PDF</a>
+    </div>
+  </footer>
+  <script src="content/synthetic-test-summary.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/interactions.js"></script>
+  <script src="scripts/charts.js"></script>
+</body>
+</html>

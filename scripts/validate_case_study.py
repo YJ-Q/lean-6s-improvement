@@ -16,7 +16,7 @@ FORBIDDEN_PATTERNS = [
     r"项目编号",
     r"验收报告[\\/]",
     r"@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
-    r"1[3-9]\d{9}",
+    r"(?<![\d.])1[3-9]\d{9}(?![\d.])",
 ]
 
 
@@ -150,3 +150,120 @@ def validate_local_references(html_path: Path, public_root: Path) -> list[str]:
         elif not candidate.exists():
             errors.append(f"missing local reference: {reference}")
     return errors
+
+
+def validate_asset_manifest(public_root: Path) -> list[str]:
+    manifest_path = public_root / "assets" / "asset-manifest.json"
+    manifest = load_json(manifest_path)
+    errors: list[str] = []
+    for asset in manifest.get("assets", []):
+        if not asset.get("public_use"):
+            continue
+        if asset.get("privacy_review") != "passed":
+            errors.append(f"asset privacy review is not passed: {asset.get('id')}")
+        if not (public_root / "assets" / asset["path"]).is_file():
+            errors.append(f"manifest asset is missing: {asset['path']}")
+    return errors
+
+
+def public_text_files(root: Path, excluded: set[str] | None = None) -> list[Path]:
+    excluded = excluded or set()
+    allowed_suffixes = {".html", ".css", ".js", ".json", ".svg", ".txt", ".md"}
+    return [
+        path
+        for path in root.rglob("*")
+        if path.is_file()
+        and path.suffix.lower() in allowed_suffixes
+        and not any(part in excluded for part in path.relative_to(root).parts)
+    ]
+
+
+def validate_offline_package(offline: Path) -> list[str]:
+    required = {
+        "index.html",
+        "exports/lean-6s-case-study.pdf",
+        "content/synthetic-test-summary.js",
+    }
+    relative = {
+        path.relative_to(offline).as_posix()
+        for path in offline.rglob("*")
+        if path.is_file()
+    }
+    errors = [f"offline package missing: {path}" for path in sorted(required - relative)]
+    forbidden = [
+        path
+        for path in relative
+        if path.startswith(("testing/", "mastery/")) or "验收报告" in path
+    ]
+    errors.extend(f"offline package contains private path: {path}" for path in forbidden)
+    if (offline / "index.html").exists():
+        errors.extend(validate_local_references(offline / "index.html", offline))
+    return errors
+
+
+def main() -> None:
+    claims = load_json(PUBLIC_ROOT / "content" / "claims.json")
+    evidence = load_json(PUBLIC_ROOT / "content" / "evidence-index.json")
+    index = PUBLIC_ROOT / "index.html"
+    print_page = PUBLIC_ROOT / "print.html"
+    offline = PUBLIC_ROOT / "offline"
+
+    checks: list[tuple[str, list[str]]] = [
+        ("evidence mappings", validate_evidence(ROOT, claims, evidence)),
+        (
+            "screen sections",
+            []
+            if len(section_ids(index)) == 9
+            else [f"expected 9 screen sections, found {len(section_ids(index))}"],
+        ),
+        (
+            "print pages",
+            []
+            if page_ids(print_page) == [f"page-{index}" for index in range(1, 11)]
+            else ["print page ids are not page-1 through page-10"],
+        ),
+        (
+            "local references",
+            validate_local_references(index, PUBLIC_ROOT)
+            + validate_local_references(print_page, PUBLIC_ROOT),
+        ),
+        (
+            "shared claims",
+            validate_shared_claims([index, print_page], claims),
+        ),
+        (
+            "privacy findings",
+            scan_forbidden_text(
+                public_text_files(
+                    PUBLIC_ROOT,
+                    excluded={"testing", "mastery", "offline"},
+                )
+            ),
+        ),
+        ("asset manifest", validate_asset_manifest(PUBLIC_ROOT)),
+        (
+            "offline package",
+            validate_offline_package(offline)
+            + scan_forbidden_text(public_text_files(offline)),
+        ),
+    ]
+    errors = [error for _, findings in checks for error in findings]
+    if errors:
+        print("Case study validation failed:")
+        for error in errors:
+            print(f"- {error}")
+        raise SystemExit(1)
+
+    print("Case study validation passed:")
+    print("- evidence mappings: valid")
+    print("- screen sections: 9")
+    print("- print pages: 10")
+    print("- local references: valid")
+    print("- shared claims: consistent")
+    print("- privacy findings: 0")
+    print("- asset manifest: valid")
+    print("- offline package: valid")
+
+
+if __name__ == "__main__":
+    main()

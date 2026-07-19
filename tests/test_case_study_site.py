@@ -36,6 +36,13 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(len(findings), 1)
         self.assertIn("盘锦", findings[0])
 
+    def test_forbidden_text_scan_ignores_svg_geometry_numbers(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "qr.svg"
+            path.write_text('<rect x="17.161098105979995"/>', encoding="utf-8")
+            findings = self.module.scan_forbidden_text([path])
+        self.assertEqual(findings, [])
+
 
 class HtmlStructureTests(unittest.TestCase):
     def setUp(self):
@@ -124,6 +131,40 @@ class PrintExportTests(unittest.TestCase):
         self.assertIn("Lean6SSkill", compact)
         self.assertIn("SYNTHETICUSERTESTING", compact)
         self.assertIsNotNone(re.search(r"13\.73\s*/\s*16", text))
+
+
+class PackageTests(unittest.TestCase):
+    def test_offline_package_excludes_private_materials(self):
+        offline = ROOT / "case-study" / "offline"
+        relative = {
+            path.relative_to(offline).as_posix()
+            for path in offline.rglob("*")
+            if path.is_file()
+        }
+        self.assertNotIn("testing/report.md", relative)
+        self.assertFalse(any(path.startswith("mastery/") for path in relative))
+        self.assertFalse(any("验收报告" in path for path in relative))
+        self.assertIn("index.html", relative)
+        self.assertIn("exports/lean-6s-case-study.pdf", relative)
+        self.assertIn("content/synthetic-test-summary.js", relative)
+
+    def test_pages_workflow_uploads_only_offline_package(self):
+        workflow = (ROOT / ".github" / "workflows" / "case-study-pages.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("path: case-study/offline", workflow)
+        self.assertNotIn("path: .", workflow)
+
+    def test_every_packaged_asset_has_passed_privacy_review(self):
+        manifest = json.loads(
+            (ROOT / "case-study" / "assets" / "asset-manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        public = [asset for asset in manifest["assets"] if asset["public_use"]]
+        self.assertTrue(public)
+        self.assertTrue(all(asset["privacy_review"] == "passed" for asset in public))
+        self.assertTrue(any(asset["id"] == "site-url-qr" for asset in public))
 
 
 if __name__ == "__main__":

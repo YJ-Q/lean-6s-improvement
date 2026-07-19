@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+  --paper: #f4f0e8;
+  --paper-strong: #ebe4d8;
+  --ink: #1f1e1b;
+  --muted: #6f6a61;
+  --accent: #c45f3d;
+  --accent-dark: #8e3f29;
+  --line: #d6cec1;
+  --success: #3f6b55;
+  --warning: #9b5d2e;
+  --display: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --body: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --step--1: clamp(0.82rem, 0.8rem + 0.1vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.12rem);
+  --step-1: clamp(1.25rem, 1.12rem + 0.6vw, 1.65rem);
+  --step-2: clamp(1.75rem, 1.42rem + 1.4vw, 2.75rem);
+  --step-3: clamp(2.6rem, 2rem + 2.6vw, 5.25rem);
+  --space-1: 0.5rem;
+  --space-2: 0.9rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 7rem;
+  --radius: 0.75rem;
+  --max-width: 76rem;
+}

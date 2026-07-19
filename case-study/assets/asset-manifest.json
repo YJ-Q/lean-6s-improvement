@@ -16,6 +16,14 @@
       "contains_real_site_data": false,
       "privacy_review": "passed",
       "public_use": true
+    },
+    {
+      "id": "site-url-qr",
+      "path": "qr/site-url.svg",
+      "origin": "generated from the candidate GitHub Pages URL",
+      "contains_real_site_data": false,
+      "privacy_review": "passed",
+      "public_use": true
     }
   ]
 }
