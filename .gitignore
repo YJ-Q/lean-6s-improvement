@@ -2,6 +2,7 @@
 docs/
 .claude/
 验收报告/
+.worktrees/
 
 # Office temporary files
 ~$*.docx
