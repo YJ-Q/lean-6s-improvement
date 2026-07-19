@@ -129,6 +129,25 @@ def aggregate_sessions(sessions: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def to_public_projection(result: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "label": result["study_label"],
+        "disclaimer": result["disclaimer"],
+        "sessions": result["session_count"],
+        "personas": result["personas"],
+        "scenarios": result["scenarios"],
+        "condition_scores": {
+            key: value["mean_total"]
+            for key, value in result["conditions"].items()
+        },
+        "dimension_scores": {
+            key: value.get("dimension_means", {})
+            for key, value in result["conditions"].items()
+        },
+        "interpretation": "用于发现输入、追问与规则问题，不证明真实用户满意度或业务效果。",
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Validate and aggregate synthetic Lean 6S sessions")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -146,6 +165,14 @@ def main() -> None:
     result = aggregate_sessions(sessions)
     output = args.root / "results.json"
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    projection_path = args.root.parent / "content" / "synthetic-test-summary.js"
+    projection_path.parent.mkdir(parents=True, exist_ok=True)
+    projection_path.write_text(
+        "window.SYNTHETIC_TEST_SUMMARY = "
+        + json.dumps(to_public_projection(result), ensure_ascii=False, indent=2)
+        + ";\n",
+        encoding="utf-8",
+    )
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

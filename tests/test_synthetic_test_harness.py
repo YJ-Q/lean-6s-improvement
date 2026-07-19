@@ -81,5 +81,22 @@ class SessionTests(unittest.TestCase):
         self.assertEqual(len(sessions), 30)
 
 
+class PublicProjectionTests(unittest.TestCase):
+    def test_public_projection_has_required_disclaimer(self):
+        module = load_module()
+        result = {
+            "study_label": "合成用户测试",
+            "disclaimer": "不等同于真实用户研究",
+            "session_count": 30,
+            "personas": 5,
+            "scenarios": 3,
+            "conditions": {"baseline": {"mean_total": 8.0}, "skill": {"mean_total": 12.0}},
+        }
+        projection = module.to_public_projection(result)
+        self.assertEqual(projection["label"], "合成用户测试")
+        self.assertEqual(projection["disclaimer"], "不等同于真实用户研究")
+        self.assertNotIn("satisfaction", projection)
+
+
 if __name__ == "__main__":
     unittest.main()
