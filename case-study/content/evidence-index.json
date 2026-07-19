@@ -1,0 +1,9 @@
+{
+  "project_title": ["README.md", "SKILL.md"],
+  "role": ["docs/superpowers/specs/2026-07-19-lean-6s-case-study-design.md"],
+  "existing_case_regression": ["README.md", "docs/case-validation.md", "examples/cases.md", "examples/cases2.md", "scripts/lean_6s_mvp.py"],
+  "expert_review": ["真实使用场景skill优化复测报告.md", "docs/superpowers/specs/2026-07-19-lean-6s-case-study-design.md"],
+  "synthetic_testing": ["case-study/testing/results.json", "case-study/testing/report.md", "case-study/content/synthetic-test-summary.js"],
+  "skill_effect": ["gpt模型有无skill效果分析报告.md", "deepseek模型有无skill对比报告.md", "跨模型skill效果总结报告.md"],
+  "iteration_history": ["SKILL.md", "README.md", ".git"]
+}
