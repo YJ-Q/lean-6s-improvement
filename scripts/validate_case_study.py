@@ -117,3 +117,36 @@ def validate_shared_claims(paths: list[Path], claims: dict[str, Any]) -> list[st
             if value not in text:
                 errors.append(f"{path.name} missing canonical value: {value}")
     return errors
+
+
+class ReferenceParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.references: list[str] = []
+
+    def handle_starttag(
+        self,
+        tag: str,
+        attrs: list[tuple[str, str | None]],
+    ) -> None:
+        values = dict(attrs)
+        for name in ("href", "src"):
+            value = values.get(name)
+            if value:
+                self.references.append(value)
+
+
+def validate_local_references(html_path: Path, public_root: Path) -> list[str]:
+    parser = ReferenceParser()
+    parser.feed(html_path.read_text(encoding="utf-8"))
+    errors: list[str] = []
+    root = public_root.resolve()
+    for reference in parser.references:
+        if reference.startswith(("#", "http://", "https://", "mailto:")):
+            continue
+        candidate = (html_path.parent / reference.split("#", 1)[0]).resolve()
+        if root not in candidate.parents and candidate != root:
+            errors.append(f"reference escapes public root: {reference}")
+        elif not candidate.exists():
+            errors.append(f"missing local reference: {reference}")
+    return errors

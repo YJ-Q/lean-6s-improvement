@@ -8,23 +8,22 @@ const browser = await chromium.launch({
   headless: true,
   executablePath: "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
 });
-const page = await browser.newPage({
-  viewport: { width: 1440, height: 1000 },
-  deviceScaleFactor: 1,
-});
+const page = await browser.newPage({ deviceScaleFactor: 1 });
 const errors = [];
 page.on("pageerror", (error) => errors.push(error.message));
 const target = pathToFileURL(path.resolve("case-study/index.html")).href;
-await page.goto(target, { waitUntil: "networkidle" });
-await page.screenshot({
-  path: "case-study/assets/screenshots/sample-desktop.png",
-  fullPage: true,
-});
-await page.setViewportSize({ width: 390, height: 844 });
-await page.reload({ waitUntil: "networkidle" });
-await page.screenshot({
-  path: "case-study/assets/screenshots/sample-mobile.png",
-  fullPage: true,
-});
+const captures = [
+  [1440, 1000, "sample-desktop.png"],
+  [1024, 768, "sample-tablet.png"],
+  [390, 844, "sample-mobile.png"],
+];
+for (const [width, height, filename] of captures) {
+  await page.setViewportSize({ width, height });
+  await page.goto(target, { waitUntil: "networkidle" });
+  await page.screenshot({
+    path: `case-study/assets/screenshots/${filename}`,
+    fullPage: true,
+  });
+}
 await browser.close();
 if (errors.length) throw new Error(errors.join("\n"));

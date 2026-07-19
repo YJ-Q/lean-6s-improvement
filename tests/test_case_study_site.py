@@ -72,5 +72,28 @@ class HtmlStructureTests(unittest.TestCase):
         self.assertEqual(errors, [])
 
 
+class PublicAssetTests(unittest.TestCase):
+    def setUp(self):
+        self.module = load_validator()
+        self.site = ROOT / "case-study"
+
+    def test_local_links_and_assets_exist(self):
+        self.assertEqual(
+            self.module.validate_local_references(self.site / "index.html", self.site),
+            [],
+        )
+        self.assertEqual(
+            self.module.validate_local_references(self.site / "print.html", self.site),
+            [],
+        )
+
+    def test_interactive_controls_have_accessible_state(self):
+        text = (self.site / "index.html").read_text(encoding="utf-8")
+        self.assertIn('role="tablist"', text)
+        self.assertIn('aria-selected="true"', text)
+        self.assertIn("aria-controls=", text)
+        self.assertIn("<noscript>", text)
+
+
 if __name__ == "__main__":
     unittest.main()

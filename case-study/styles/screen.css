@@ -53,6 +53,22 @@ h3 { font-size: var(--step-1); }
 .architecture small { margin: 0; }
 .architecture strong { font-family: var(--mono); }
 .architecture span { color: var(--muted); font-size: var(--step--1); }
+.evaluation-tabs { margin-top: var(--space-4); border-block: 1px solid var(--line); }
+.tab-list { display: flex; gap: var(--space-3); overflow-x: auto; border-bottom: 1px solid var(--line); }
+.tab-list button { min-height: 2.75rem; padding: 0; border: 0; border-bottom: 2px solid transparent; color: var(--muted); background: transparent; font: 600 var(--step--1)/1 var(--body); white-space: nowrap; cursor: pointer; }
+.tab-list button[aria-selected="true"] { border-color: var(--accent); color: var(--ink); }
+.tab-list button:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 3px; }
+[role="tabpanel"] { padding-block: var(--space-3); }
+.js [role="tabpanel"][hidden] { display: none; }
+.score-row { display: grid; grid-template-columns: minmax(10rem, 0.35fr) 1fr; gap: var(--space-3); align-items: end; padding-block: var(--space-2); }
+.score-row > div:first-child { display: flex; justify-content: space-between; gap: var(--space-2); }
+.score-row strong { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.score-track { height: 0.75rem; overflow: hidden; background: var(--paper-strong); }
+.score-track span { display: block; width: var(--bar-percent, 0%); height: 100%; background: var(--accent); transition: width 500ms ease; }
+.score-row:first-child .score-track span { background: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { padding: 0.7rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
+th { color: var(--muted); font-size: var(--step--1); font-weight: 600; }
 .site-footer { padding-block: var(--space-4); }
 .site-footer .site-shell { display: flex; justify-content: space-between; gap: var(--space-3); align-items: baseline; }
 .site-footer p { max-width: 60ch; color: var(--muted); }
@@ -62,6 +78,7 @@ h3 { font-size: var(--step-1); }
   section { padding-block: var(--space-5); }
   .hero-grid, .split-grid { grid-template-columns: 1fr; gap: var(--space-3); }
   .evidence-strip, .iteration, .architecture { grid-template-columns: 1fr; }
+  .score-row { grid-template-columns: 1fr; }
   .iteration article, .architecture article { border-right: 0; border-bottom: 1px solid var(--line); }
   .iteration article:last-child, .architecture article:last-child { border-bottom: 0; }
 }

@@ -136,6 +136,38 @@
           <p><strong>9.73/16 → 13.73/16</strong>；主要提升来自分类逻辑、可派工性和可测量验收。</p>
           <p><strong>不等同于真实用户研究。</strong>它用于形成性发现，不能替代真实访谈、可用性测试或市场验证。</p>
         </div>
+        <div class="evaluation-tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="合成用户测试视图">
+            <button type="button" id="tab-score" role="tab" aria-selected="true" aria-controls="panel-score">条件评分</button>
+            <button type="button" id="tab-dimension" role="tab" aria-selected="false" aria-controls="panel-dimension" tabindex="-1">维度变化</button>
+            <button type="button" id="tab-boundary" role="tab" aria-selected="false" aria-controls="panel-boundary" tabindex="-1">可信边界</button>
+          </div>
+          <div id="panel-score" role="tabpanel" aria-labelledby="tab-score">
+            <div class="score-row">
+              <div><span>普通 AI</span><strong data-score-value="baseline">9.73 / 16</strong></div>
+              <div class="score-track"><span data-bar-condition="baseline" data-bar-label="普通 AI 条件"></span></div>
+            </div>
+            <div class="score-row">
+              <div><span>配置 Skill</span><strong data-score-value="skill">13.73 / 16</strong></div>
+              <div class="score-track"><span data-bar-condition="skill" data-bar-label="配置 Skill 条件"></span></div>
+            </div>
+          </div>
+          <div id="panel-dimension" role="tabpanel" aria-labelledby="tab-dimension">
+            <table>
+              <thead><tr><th>维度</th><th>普通 AI</th><th>Skill</th></tr></thead>
+              <tbody>
+                <tr><td>分类逻辑</td><td>0.00</td><td>1.80</td></tr>
+                <tr><td>可派工性</td><td>1.00</td><td>1.93</td></tr>
+                <tr><td>可测量验收</td><td>1.27</td><td>2.00</td></tr>
+                <tr><td>追问负担</td><td>1.20</td><td>1.27</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="panel-boundary" role="tabpanel" aria-labelledby="tab-boundary">
+            <p><strong>保留失败：</strong>追问负担几乎未改善，信息缺失时仍可能累计多轮问题。</p>
+            <p>这些分数来自合成会话的冻结规则评分，只用于发现产品问题，不证明真人满意度、整改效率或业务收益。</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -166,5 +198,9 @@
       <a href="print.html">查看 10 页打印预览</a>
     </div>
   </footer>
+  <script src="content/synthetic-test-summary.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/interactions.js"></script>
+  <script src="scripts/charts.js"></script>
 </body>
 </html>
