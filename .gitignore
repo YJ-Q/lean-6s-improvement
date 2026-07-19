@@ -18,6 +18,11 @@ tmp/
 # Local development dependencies
 node_modules/
 
+# Private local learning materials (never publish with the portfolio)
+case-study/mastery/
+scripts/validate_mastery_materials.py
+tests/test_mastery_materials.py
+
 # OS/editor noise
 .DS_Store
 Thumbs.db
