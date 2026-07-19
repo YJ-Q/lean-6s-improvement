@@ -36,5 +36,44 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(errors, [])
 
 
+class SessionTests(unittest.TestCase):
+    def setUp(self):
+        self.module = load_module()
+
+    def valid_session(self, condition="skill", persona_id="P01", scenario_id="S01"):
+        return {
+            "session_id": f"{condition}-{persona_id}-{scenario_id}",
+            "condition": condition,
+            "persona_id": persona_id,
+            "scenario_id": scenario_id,
+            "transcript": [
+                {"speaker": "user", "text": "现场有问题。"},
+                {"speaker": "assistant", "text": "请确认具体位置。"},
+            ],
+            "ratings": [
+                {"dimension_id": f"R{i:02d}", "score": 1, "evidence": "记录中的具体证据"}
+                for i in range(1, 9)
+            ],
+            "review": {"strengths": ["追问位置"], "failures": ["措施不完整"], "notes": "形成性测试"},
+        }
+
+    def test_validate_session_accepts_complete_record(self):
+        self.assertEqual(self.module.validate_session(self.valid_session()), [])
+
+    def test_validate_session_rejects_missing_evidence(self):
+        session = self.valid_session()
+        session["ratings"][0]["evidence"] = ""
+        self.assertIn("R01 requires evidence", self.module.validate_session(session))
+
+    def test_aggregate_computes_condition_means(self):
+        baseline = self.valid_session("baseline")
+        skill = self.valid_session("skill")
+        skill["ratings"][0]["score"] = 2
+        result = self.module.aggregate_sessions([baseline, skill])
+        self.assertEqual(result["session_count"], 2)
+        self.assertEqual(result["conditions"]["baseline"]["mean_total"], 8.0)
+        self.assertEqual(result["conditions"]["skill"]["mean_total"], 9.0)
+
+
 if __name__ == "__main__":
     unittest.main()
