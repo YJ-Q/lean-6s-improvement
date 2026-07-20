@@ -20,7 +20,7 @@
     {
       "id": "site-url-qr",
       "path": "qr/site-url.svg",
-      "origin": "generated from the candidate GitHub Pages URL",
+      "origin": "generated from the deployed GitHub Pages URL",
       "contains_real_site_data": false,
       "privacy_review": "passed",
       "public_use": true
