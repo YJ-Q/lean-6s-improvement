@@ -1,0 +1,41 @@
+{
+  "study_label": "合成用户测试",
+  "disclaimer": "不等同于真实用户研究",
+  "session_count": 30,
+  "personas": 5,
+  "scenarios": 3,
+  "conditions": {
+    "baseline": {
+      "session_count": 15,
+      "mean_total": 9.73,
+      "max_total": 16,
+      "dimension_means": {
+        "R01": 0.93,
+        "R02": 2,
+        "R03": 0,
+        "R04": 1,
+        "R05": 1.27,
+        "R06": 1.53,
+        "R07": 1.8,
+        "R08": 1.2
+      },
+      "sessions_with_failures": 15
+    },
+    "skill": {
+      "session_count": 15,
+      "mean_total": 13.73,
+      "max_total": 16,
+      "dimension_means": {
+        "R01": 1,
+        "R02": 2,
+        "R03": 1.8,
+        "R04": 1.93,
+        "R05": 2,
+        "R06": 1.87,
+        "R07": 1.87,
+        "R08": 1.27
+      },
+      "sessions_with_failures": 11
+    }
+  }
+}

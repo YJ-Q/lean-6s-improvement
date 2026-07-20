@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P04-S02","condition":"baseline","persona_id":"P04","scenario_id":"S02","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"车间工具架太乱了，帮我给个改善方案。"},{"speaker":"assistant","text":"先别急着做目视板。请说明工具架位置、在用品和异常品构成、是否有安全影响、已有归位标准，以及这是偶发还是复发。"},{"speaker":"user","text":"维修工位，在用扳手和量具混放，另有2件待报废工具；不影响消防或通道。现场没有影子板、标签、数量标准和报废隔离区，也是第一次系统整理。你不要把5S简单等同于做影子板。"},{"speaker":"assistant","text":"同意，影子板不是起点。先按使用状态分流：报废工具隔离待审，在用工具按任务和取用频率分组；清理后观察维修人员真实取放方式，再确定位置和数量。标签可以先做临时版，一周后根据错放、寻找时间和闲置数量调整。只有高频、轮廓稳定且缺件风险较高的工具，才值得做影子定位。"}],
+  "ratings":[{"dimension_id":"R01","score":0,"evidence":"一次追问5类信息，超过3个上限"},{"dimension_id":"R02","score":2,"evidence":"依据首次整理与现有标准缺失提出观察，不捏造复发"},{"dimension_id":"R03","score":0,"evidence":"没有明确整顿主类和整理副类"},{"dimension_id":"R04","score":0,"evidence":"方案无责任角色、完成时限和留证字段"},{"dimension_id":"R05","score":1,"evidence":"用错放、寻找时间和闲置数量作调整依据，但未给阈值"},{"dimension_id":"R06","score":1,"evidence":"提出一周后调整，但未建立定期点检和闭环规则"},{"dimension_id":"R07","score":2,"evidence":"回应顾问对影子板方法的质疑并给出选用条件"},{"dimension_id":"R08","score":1,"evidence":"仅1轮补充，但一次追问5类信息"}],
+  "review":{"strengths":["避免把影子板当作万能对策"],"failures":["建议不能直接派工或验收"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

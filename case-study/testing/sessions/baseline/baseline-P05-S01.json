@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P05-S01","condition":"baseline","persona_id":"P05","scenario_id":"S01","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"包装区安全疏散通道黄线内又堆了6个空托盘，上周清走过一次，叉车下班前会来拉走。请告诉我怎么整改。"},{"speaker":"assistant","text":"这6个托盘是否确实影响人员疏散？现场有没有别的临时位置？上周处理后有人复查吗？"},{"speaker":"user","text":"黄线就是疏散通道的线，托盘放里面会挡着。"},{"speaker":"assistant","text":"现场有没有专门临时放空托盘的地方？"},{"speaker":"user","text":"没有专门的地方。"},{"speaker":"assistant","text":"先马上把6个托盘搬出黄线，别等到下班；拍一张通道清空照片，叉车来了再拉走。然后在附近找一个不挡路的位置，贴上‘空托盘临时区’，以后只放那里，并让当班组长每天看一眼。"}],
+  "ratings":[{"dimension_id":"R01","score":1,"evidence":"分两轮累计4问，且重复临时位置主题"},{"dimension_id":"R02","score":2,"evidence":"依据黄线影响疏散和无临时位置作答"},{"dimension_id":"R03","score":0,"evidence":"未呈现安全主分类与整顿副分类"},{"dimension_id":"R04","score":1,"evidence":"有清障、照片和当班组长，但没有完整时限与复查证据"},{"dimension_id":"R05","score":2,"evidence":"搬出黄线且通道清空可直接拍照验收"},{"dimension_id":"R06","score":1,"evidence":"有临时区和每日检查，但无容量与复发升级条件"},{"dimension_id":"R07","score":2,"evidence":"用‘先马上’和‘怎么算完’的直白表达适配低数字熟练度"},{"dimension_id":"R08","score":1,"evidence":"问题不复杂，但临时位置被重复追问"}],
+  "review":{"strengths":["当日首要动作和完成状态通俗"],"failures":["重复追问并缺复发升级阈值"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

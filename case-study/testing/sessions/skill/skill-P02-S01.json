@@ -1,0 +1,6 @@
+{
+  "session_id":"skill-P02-S01","condition":"skill","persona_id":"P02","scenario_id":"S01","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"包装区安全疏散通道黄线内又堆了6个空托盘，上周清走过一次，叉车下班前会来拉走。请告诉我怎么整改。"},{"speaker":"assistant","text":"先问两项，会直接改变派工：有无合规临时托盘区？上周清走后有无复查记录？在确认前，黄线内不得继续增加托盘，不能等下班才恢复疏散净空。"},{"speaker":"user","text":"无临时托盘区；无复查记录。给我可复制的责任、期限、验收、证据。"},{"speaker":"assistant","text":"判定：安全主类、整顿副类；整改后复发，现措施未闭环。\n责任角色｜包装班组长；动作｜立即禁止新增并协调叉车岗位移出6个托盘；期限｜立即启动、当班完成；验收｜疏散通道黄线内0托盘；证据｜原位前后同角度照片。\n责任角色｜包装区域主管；动作｜今日确认不占疏散、消防及叉车路线的临时托盘点，标明最大6个、满量清运；期限｜今日下班前；验收｜托盘全部在线内且数量≤6；证据｜临时点全景及标识照片。\n责任角色｜当班巡检岗位；动作｜连续3班检查黄线和临时点；期限｜未来3班；验收｜3次均无占线、无超量；证据｜点检记录。复发或超期立即升级区域主管和EHS。"}],
+  "ratings":[{"dimension_id":"R01","score":2,"evidence":"只追问临时区与复查记录两项派工关键信息"},{"dimension_id":"R02","score":2,"evidence":"事实与复发控制缺口均来自已知信息"},{"dimension_id":"R03","score":2,"evidence":"明确安全主类、整顿副类"},{"dimension_id":"R04","score":2,"evidence":"三组责任角色、动作、期限、验收、证据字段完整"},{"dimension_id":"R05","score":2,"evidence":"0托盘、≤6个、连续3班无占线均可测量"},{"dimension_id":"R06","score":2,"evidence":"定位、最大量、清运触发、多班点检和升级条件齐全"},{"dimension_id":"R07","score":2,"evidence":"格式直接可复制到台账"},{"dimension_id":"R08","score":2,"evidence":"1轮2问后即输出完整字段"}],
+  "review":{"strengths":["可复制的闭环任务字段完整"],"failures":[],"notes":"Skill 条件的 AI 中介合成会话"}
+}

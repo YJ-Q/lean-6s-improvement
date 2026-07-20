@@ -1,0 +1,6 @@
+{
+  "session_id":"skill-P05-S02","condition":"skill","persona_id":"P05","scenario_id":"S02","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"车间工具架太乱了，帮我给个改善方案。"},{"speaker":"assistant","text":"先说一个：工具架在哪个工位？"},{"speaker":"user","text":"在维修工位。"},{"speaker":"assistant","text":"更新摘要：是维修工位。再确认一个：它有没有挡消防或通道？"},{"speaker":"user","text":"不挡。"},{"speaker":"assistant","text":"更新摘要：没有已知消防和通道风险，先按工具整顿做。架上有没有待报废的工具？"},{"speaker":"user","text":"有两件，其余是常用扳手和量具。"},{"speaker":"assistant","text":"更新摘要：有2件待报废，其余是常用工具。今天第一步：维修班组长把2件待报废工具挂牌后单独放，扳手和量具分开放。今天完成线：待报废和在用工具不混放，架上不再散乱叠放，并拍前后照片。形迹板、标签、数量标准和以前是否反复还没确认，所以今天先做到分开和可看清，不先说已经彻底闭环。"}],
+  "ratings":[{"dimension_id":"R01","score":2,"evidence":"总共3个关键问题，每轮只问1个，符合用户合作方式"},{"dimension_id":"R02","score":2,"evidence":"明确尚未确认标准与复发，不宣称彻底闭环"},{"dimension_id":"R03","score":1,"evidence":"标明工具整顿，但未明确待报废物的整理副分类"},{"dimension_id":"R04","score":1,"evidence":"有维修班组长、今日动作、验收与照片，但长期任务未派工"},{"dimension_id":"R05","score":2,"evidence":"2件待报废与在用工具不混放，前后照片可验收"},{"dimension_id":"R06","score":1,"evidence":"不假闭环，但长期标准与点检尚未落实"},{"dimension_id":"R07","score":2,"evidence":"每轮一问、使用今天第一步和完成线，适配低数字熟练度"},{"dimension_id":"R08","score":1,"evidence":"问题不过载，但需3轮补充后才给方案"}],
+  "review":{"strengths":["交互负担按用户能力拆分，不假闭环"],"failures":["长期标准与闭环证据尚未派工"],"notes":"Skill 条件的 AI 中介合成会话"}
+}

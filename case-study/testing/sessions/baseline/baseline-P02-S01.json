@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P02-S01","condition":"baseline","persona_id":"P02","scenario_id":"S01","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"包装区安全疏散通道黄线内又堆了6个空托盘，上周清走过一次，叉车下班前会来拉走。请告诉我怎么整改。"},{"speaker":"assistant","text":"补两个派工字段：现场是否有临时空托盘区？上周整改后是否有复查记录？"},{"speaker":"user","text":"临时区：无。复查记录：无。"},{"speaker":"assistant","text":"可直接派工：\n问题：包装区疏散通道黄线内堆放6个空托盘。\n立即措施：包装班组立即移出黄线，叉车下班前统一拉走。\n责任人：包装当班组长。\n完成时限：本班下班前。\n验收标准：黄线内无托盘，疏散通道全宽畅通，附清场照片。\n防复发：仓库主管明日划定临时空托盘区；包装组长连续5个工作日交接复查并留记录。"}],
+  "ratings":[{"dimension_id":"R01","score":2,"evidence":"只追问临时区和复查记录两项防复发关键信息"},{"dimension_id":"R02","score":2,"evidence":"未超出用户和补充回答中的事实"},{"dimension_id":"R03","score":0,"evidence":"未明确安全主分类和整顿副分类"},{"dimension_id":"R04","score":2,"evidence":"对象、动作、当班组长、本班时限、验收和照片齐全"},{"dimension_id":"R05","score":2,"evidence":"黄线内无托盘与通道畅通可观察和拍照"},{"dimension_id":"R06","score":2,"evidence":"复发后加入临时区和连续5日复查，不只清理一次"},{"dimension_id":"R07","score":2,"evidence":"用可直接复制的派工字段适配时间紧张的仓库主管"},{"dimension_id":"R08","score":2,"evidence":"一轮两问后即给出完整任务单"}],
+  "review":{"strengths":["可派工性与验收证据完整"],"failures":["未呈现主副分类逻辑"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

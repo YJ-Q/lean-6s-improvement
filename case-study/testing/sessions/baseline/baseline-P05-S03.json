@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P05-S03","condition":"baseline","persona_id":"P05","scenario_id":"S03","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"灭火器前的纸箱已经搬到仓库角落，也通知大家以后注意，照片拍好了，可以闭环了吗？"},{"speaker":"assistant","text":"灭火器前现在完全空了吗？仓库角落有没有确认不挡路？现场有没有禁放标识和检查人？"},{"speaker":"user","text":"灭火器前已经空了。"},{"speaker":"assistant","text":"仓库角落确认过安全吗？"},{"speaker":"user","text":"我不知道，只是搬到角落去了。"},{"speaker":"assistant","text":"先不要闭环。找仓库负责人看一下那个角落是否挡通道或消防设施，没问题再拍照；灭火器前再贴一个‘禁止堆物’标识，以后巡场时顺便检查。"}],
+  "ratings":[{"dimension_id":"R01","score":1,"evidence":"累计4问，且再次追问角落安全"},{"dimension_id":"R02","score":2,"evidence":"没有把未核验的仓库角落写成已合规"},{"dimension_id":"R03","score":0,"evidence":"未呈现主副分类"},{"dimension_id":"R04","score":1,"evidence":"指定仓库负责人核验和补标识，但无时限与记录责任"},{"dimension_id":"R05","score":1,"evidence":"新位置核验和照片可观察，但无持续检查次数"},{"dimension_id":"R06","score":2,"evidence":"因新位置未核验而明确‘先不要闭环’"},{"dimension_id":"R07","score":2,"evidence":"使用简单动作和直接结论，未加入复杂术语"},{"dimension_id":"R08","score":1,"evidence":"分步问适配漏答用户，但重复询问新位置"}],
+  "review":{"strengths":["简明拒绝在风险去向未核验时闭环"],"failures":["无持续复查阈值"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

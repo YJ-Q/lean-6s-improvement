@@ -1,0 +1,32 @@
+{
+  "project_title": "Lean 6S Improvement",
+  "project_subtitle": "把精益改善专家方法封装成现场管理者可用的 AI Skill",
+  "role": "产品问题、工作流、规则体系、评测与迭代主导；代码由 AI 辅助生成",
+  "existing_case_regression": {
+    "total": 31,
+    "virtual_cases": 14,
+    "real_record_cases": 17,
+    "dimensions": ["主分类", "副分类", "习惯性异常", "闭环判定"],
+    "claim": "31 条现有案例的四项回归检查均通过",
+    "limitation": "只证明现有规则与现有案例标注一致，不代表未知现场问题准确率为 100%"
+  },
+  "expert_review": {
+    "reviewers": 1,
+    "profile": "具有精益改善现场项目咨询经验的导师",
+    "feedback": "方向可用，但需要更契合现场情况",
+    "design_response": "增加追问决策关卡，要求补充会改变风险、分类、措施或闭环判断的现场信息"
+  },
+  "synthetic_testing": {
+    "sessions": 30,
+    "personas": 5,
+    "scenarios": 3,
+    "label": "合成用户测试",
+    "disclaimer": "不等同于真实用户研究"
+  },
+  "non_claims": [
+    "未验证真实用户满意度",
+    "未验证整改效率提升",
+    "未验证事故率下降",
+    "未验证业务投资回报"
+  ]
+}

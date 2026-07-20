@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P03-S02","condition":"baseline","persona_id":"P03","scenario_id":"S02","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"车间工具架太乱了，帮我给个改善方案。"},{"speaker":"assistant","text":"为避免把‘乱’直接当成原因，请确认位置、物品构成、安全影响、现有目视化标准，以及以前是否发生过同类问题。"},{"speaker":"user","text":"事实：维修工位工具架上有在用扳手、量具和2件待报废工具；不影响消防或通道；没有影子板、标签、数量标准或报废隔离区。此次是第一次系统整理，无法判断是否复发。"},{"speaker":"assistant","text":"基于事实，可以先做分类和隔离：在用扳手、量具分别归位，待报废工具进入有标识的隔离容器，并给货位增加名称标签。数量标准和影子板是否必要，需要根据一段时间的取用频率再决定。‘缺少标准导致混乱’目前只是合理推断，不宜写成已证实根因；建议整理后观察一周，记录未归位和超量情况。"}],
+  "ratings":[{"dimension_id":"R01","score":0,"evidence":"一次追问5类信息，超过3个上限"},{"dimension_id":"R02","score":2,"evidence":"把缺标准导致混乱标为合理推断，不写成已证实根因"},{"dimension_id":"R03","score":0,"evidence":"未明确主副分类"},{"dimension_id":"R04","score":0,"evidence":"没有责任角色、完成期限或完整证据字段"},{"dimension_id":"R05","score":1,"evidence":"隔离和标签可观察，但无具体验收数量"},{"dimension_id":"R06","score":1,"evidence":"建议一周观察和记录，但无闭环阈值"},{"dimension_id":"R07","score":2,"evidence":"事实与推断边界适配EHS用户"},{"dimension_id":"R08","score":1,"evidence":"只用1轮补充，但单轮信息负担较大"}],
+  "review":{"strengths":["未把首次改善误判为素养或复发"],"failures":["不可直接派工，验收阈值缺失"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

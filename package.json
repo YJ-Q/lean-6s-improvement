@@ -1,0 +1,7 @@
+{
+  "name": "lean-6s-case-study-tools",
+  "private": true,
+  "devDependencies": {
+    "playwright-core": "1.61.1"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "session_id":"baseline-P02-S02","condition":"baseline","persona_id":"P02","scenario_id":"S02","study_context":"合成用户测试；不等同于真实用户研究",
+  "transcript":[{"speaker":"user","text":"车间工具架太乱了，帮我给个改善方案。"},{"speaker":"assistant","text":"请按字段回复：位置；物品类别；是否影响消防或通道；现有标签/定量/待报废区；是否反复发生。"},{"speaker":"user","text":"位置：维修工位。物品：在用扳手、量具、待报废工具2件。消防/通道：不影响。标签/定量/报废区：均无。复发：首次系统整理，未知。"},{"speaker":"assistant","text":"派工单：\n任务：维修工位工具架整理。\n责任人：维修班长。\n措施：在用扳手、量具分类清洁；2件待报废工具移入红色待处置箱；货位贴名称标签；按常用数量设置上限。\n时限：今日下班前完成分类，明日补齐标签。\n验收：架面无杂物，工具按类归位，待报废品与在用品隔离。\n复查：一周后核对缺失、超量情况，再调整定量。"}],
+  "ratings":[{"dimension_id":"R01","score":0,"evidence":"一次要求回复5类信息，超过3个关键问题"},{"dimension_id":"R02","score":2,"evidence":"依据用户字段回复作答，未捏造复发"},{"dimension_id":"R03","score":0,"evidence":"未说明整顿与整理的主副分类"},{"dimension_id":"R04","score":2,"evidence":"含任务、维修班长、措施、时限和验收"},{"dimension_id":"R05","score":1,"evidence":"分类和隔离可观察，但‘架面无杂物’和上限未定量"},{"dimension_id":"R06","score":1,"evidence":"有一周复查，但无记录责任和升级规则"},{"dimension_id":"R07","score":2,"evidence":"字段式输入和派工单可直接复制"},{"dimension_id":"R08","score":1,"evidence":"仅1轮补充，但单轮5个字段造成较高负担"}],
+  "review":{"strengths":["用户可直接复制派工单"],"failures":["前置信息要求过多，验收定量不足"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}

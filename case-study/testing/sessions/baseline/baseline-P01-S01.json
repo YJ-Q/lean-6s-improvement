@@ -1,0 +1,23 @@
+{
+  "session_id": "baseline-P01-S01", "condition": "baseline", "persona_id": "P01", "scenario_id": "S01",
+  "study_context": "合成用户测试；不等同于真实用户研究",
+  "transcript": [
+    {"speaker": "user", "text": "包装区安全疏散通道黄线内又堆了6个空托盘，上周清走过一次，叉车下班前会来拉走。请告诉我怎么整改。"},
+    {"speaker": "assistant", "text": "先确认一下：这6个托盘是否占用了疏散通道？现场有没有临时托盘区？上周清走后有没有安排复查？"},
+    {"speaker": "user", "text": "就在疏散通道里面，黄线里占着，临时托盘区也没有。"},
+    {"speaker": "assistant", "text": "明白。上周处理后有复查记录吗？叉车来之前能不能先叫人把托盘移出黄线？"},
+    {"speaker": "user", "text": "复查记录没有，我可以叫两个人先挪走。"},
+    {"speaker": "assistant", "text": "今天下班前先做三件事：安排两人立即把6个托盘移到不占通道的位置；拍一张通道完全清空、黄线可见的照片；叉车拉走后由你再确认一次。明天再和仓库确定一个临时空托盘区，包装区以后不准把黄线内当等待区，并补一张每日交接检查表。"}
+  ],
+  "ratings": [
+    {"dimension_id":"R01","score":0,"evidence":"两轮累计追问5项，超过最多3个的负担上限"},
+    {"dimension_id":"R02","score":2,"evidence":"结论只使用6个托盘、黄线和无复查记录等已提供事实"},
+    {"dimension_id":"R03","score":0,"evidence":"没有明确安全主分类和整顿副分类"},
+    {"dimension_id":"R04","score":1,"evidence":"有动作、当班期限和照片，但责任只写‘你’和‘两人’"},
+    {"dimension_id":"R05","score":2,"evidence":"‘通道完全清空、黄线可见’可直接观察和拍照"},
+    {"dimension_id":"R06","score":1,"evidence":"增加临时区和交接表，但未给出复发后的升级条件"},
+    {"dimension_id":"R07","score":1,"evidence":"先给当班动作，但对新手班组长的追问较多"},
+    {"dimension_id":"R08","score":0,"evidence":"已知疏散通道、黄线和复发，仍分两轮追问5项"}
+  ],
+  "review": {"strengths":["当班清障和照片验收明确"],"failures":["追问过多且未明确主副分类"],"notes":"普通 AI 条件的 AI 中介合成会话"}
+}
