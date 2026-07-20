@@ -626,6 +626,7 @@ def infer_object(text: str) -> str:
         "油",
         "垃圾",
         "夹具",
+        "清洁剂",
     ]
     lowered = text.lower()
     for item in candidates:
