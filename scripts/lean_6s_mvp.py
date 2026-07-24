@@ -459,9 +459,26 @@ def classify(text: str) -> tuple[str, list[str]]:
     if contains_any(text, ["过期化学品", "保质期", "盘点跳过"]):
         return "Seiri / 整理", ["Safety / 安全"]
 
-    if contains_any(text, ["喷房", "清洁", "方法不一样"]) or (
-        contains_any(text, ["SOP", "统一标准"]) and contains_any(text, ["不同班组", "清洁"])
-    ):
+    standard_gap_terms = [
+        "方法不一样",
+        "方法不一致",
+        "不同班组",
+        "没有统一标准",
+        "缺少统一标准",
+        "没有SOP",
+        "缺少SOP",
+        "无SOP",
+        "制度缺失",
+    ]
+    spray_cleaning_standard_gap = (
+        contains_any(text, ["喷房", "喷涂"])
+        and contains_any(text, ["清洁", "清扫"])
+        and contains_any(text, standard_gap_terms)
+    )
+    general_cleaning_standard_gap = contains_any(text, standard_gap_terms) and contains_any(
+        text, ["清洁工作", "进行清洁", "清洁方法", "清洁标准", "清洁效果"]
+    )
+    if spray_cleaning_standard_gap or general_cleaning_standard_gap:
         return "Seiketsu / 清洁", []
 
     if contains_any(text, ["焊渣", "飞溅"]):
@@ -626,6 +643,7 @@ def infer_object(text: str) -> str:
         "油",
         "垃圾",
         "夹具",
+        "清洁剂",
     ]
     lowered = text.lower()
     for item in candidates:
